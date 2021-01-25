@@ -1,0 +1,137 @@
+---
+title: "Model s501 Test Data"
+author: "JML"
+date: "September 26, 2018 / January 25, 2021"
+output: html_notebook
+---
+
+##Load Libraries (for AWS)
+```{r}
+packages <- c("haven", "tidyverse",
+              "Matrix", "data.table", "dtplyr", "RSiena", "rmarkdown")
+if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+  install.packages(setdif(packagfes, rownames(installed.packages())))
+}
+lapply(packages, library, character.only = TRUE)
+```
+
+##Load or save workspace
+```{r}
+load("s501.RData")
+```
+
+```{r}
+save.image("s501.RData")
+```
+## Model setup
+
+```{r}
+### run a model using data included with RSiena
+# This will print a report called stat_calc.txt in the working directory
+mynet1 <- sienaDependent(array(c(s501, s502), dim=c(50, 50, 2)))
+s50a <- s50a[,1:2]
+mybeh <- sienaDependent(s50a, type="behavior")
+sDat <- sienaDataCreate(mynet1, mybeh)
+eff <- getEffects(sDat)
+eff <- includeEffects(eff, avAlt, interaction1="mynet1", type="eval", name="mybeh")
+alg <- sienaAlgorithmCreate(projname="stat_calc")
+ans <- siena07(alg, data=sDat, effects=eff, batch=T)
+
+### calculate the target statistic manually (goal: 33.57)
+# this data set has no missing values so this simplified code 
+# for the overall mean is the same as the mean of wave-means
+# verifiable in the stat_calc.txt output
+s50a_c <- s50a - mean(s50a) #Fine since composition is the same & no missings.
+
+# manually calculate the statistic
+sum(s50a_c[,2] * gapply(s501, MARGIN=1, STATS=s50a_c[,2], FUN=mean, na.rm=T), na.rm=T)
+```
+
+#Create 2-wave s50 network 
+Data from Scottish study of alc and tobacco use in adolescents
+n=50
+```{r}
+mynet1 <- sienaDependent(array(c(s501, s502), dim=c(50, 50, 2)))
+```
+
+#Create s50 Alc Use variable
+```{r}
+s50a <- s50a[,1:2]
+alcUse <- sienaDependent(s50a, type="behavior")
+```
+
+#s50 dataObj, effObj, algObj
+```{r}
+dataOb <- sienaDataCreate(mynet1, alcUse)
+effOb <- getEffects(dataOb)
+algOb <- sienaAlgorithmCreate(projname="s50Alc")
+```
+#s50 Add Effects
+```{r}
+effOb <- includeEffects(effOb, avAlt, interaction1="mynet1", type="eval",
+                        name="alcUse", include=F)
+effOb <- includeEffects(effOb, loPass, type = "eval",
+                        name = "alcUse", include=F)
+effOb <- includeInteraction(effOb, name = "alcUse", type = "eval",
+                            avAlt, loPass,
+                            interaction1 = c("mynet1", ""))
+```
+#Look at effects obj
+```{r}
+print(effOb, expand = TRUE) 
+```
+#Show effects table
+```{r}
+effectsDocumentation(effOb, filename = "s50effx")
+```
+
+
+```{r}
+resOb <- siena07(algOb, data=dataOb, effects=effOb, batch=T)
+```
+
+
+#Calculate stats manually
+
+##Center alcUse
+```{r}
+#Center the alc variable
+s50a_c <- s50a - mean(s50a)
+```
+
+###avAlt statistic
+```{r}
+#Calc av alt per individual
+avAlt.vec <- s50a_c[,2] * gapply(s501, MARGIN=1, STATS=s50a_c[,2], FUN=mean, na.rm=T) 
+#Remove NaNs (some egos chose no alters)
+avAlt.vec <- ifelse(is.na(avAlt.vec), 0, avAlt.vec)
+#Calculate the total statisic. Should be 33.57
+avAlt.calc <- sum(avAlt.vec)
+```
+
+###Quad effect statistic
+```{r}
+#Should be 71.105
+sum(s50a_c[,2]*s50a_c[,2])
+```
+
+###loPass effect statistic
+```{r}
+#Should be 24.1567
+loPass.calc <- sum(1/(exp(s50a_c[,2])+1))
+```
+
+###loPass values for each individual 
+```{r}
+loPass.vec <- 1/(exp(s50a_c[,2])+1)
+```
+
+```{r}
+s50a_c[,2]
+```
+
+###4loPass x avAlt statistic
+```{r}
+discAvAlt <- sum(loPass.vec * avAlt.vec)
+```
+
