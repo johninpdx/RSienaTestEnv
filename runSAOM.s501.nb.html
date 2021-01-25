@@ -1829,8 +1829,8 @@ lapply(packages, library, character.only = TRUE)</code></pre>
 <p>##Load or save workspace</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9hZChcImtuZWNodC5SRGF0YVwiKVxuYGBgIn0= -->
-<pre class="r"><code>load(&quot;knecht.RData&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9hZChcInM1MDEuUkRhdGFcIilcbmBgYCJ9 -->
+<pre class="r"><code>load(&quot;s501.RData&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1841,33 +1841,8 @@ lapply(packages, library, character.only = TRUE)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<div id="model-setup" class="section level2">
-<h2>Model setup</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMjIHJ1biBhIG1vZGVsIHVzaW5nIGRhdGEgaW5jbHVkZWQgd2l0aCBSU2llbmFcbiMgVGhpcyB3aWxsIHByaW50IGEgcmVwb3J0IGNhbGxlZCBzdGF0X2NhbGMudHh0IGluIHRoZSB3b3JraW5nIGRpcmVjdG9yeVxubXluZXQxIDwtIHNpZW5hRGVwZW5kZW50KGFycmF5KGMoczUwMSwgczUwMiksIGRpbT1jKDUwLCA1MCwgMikpKVxuczUwYSA8LSBzNTBhWywxOjJdXG5teWJlaCA8LSBzaWVuYURlcGVuZGVudChzNTBhLCB0eXBlPVwiYmVoYXZpb3JcIilcbnNEYXQgPC0gc2llbmFEYXRhQ3JlYXRlKG15bmV0MSwgbXliZWgpXG5lZmYgPC0gZ2V0RWZmZWN0cyhzRGF0KVxuZWZmIDwtIGluY2x1ZGVFZmZlY3RzKGVmZiwgYXZBbHQsIGludGVyYWN0aW9uMT1cIm15bmV0MVwiLCB0eXBlPVwiZXZhbFwiLCBuYW1lPVwibXliZWhcIilcbmFsZyA8LSBzaWVuYUFsZ29yaXRobUNyZWF0ZShwcm9qbmFtZT1cInN0YXRfY2FsY1wiKVxuYW5zIDwtIHNpZW5hMDcoYWxnLCBkYXRhPXNEYXQsIGVmZmVjdHM9ZWZmLCBiYXRjaD1UKVxuXG4jIyMgY2FsY3VsYXRlIHRoZSB0YXJnZXQgc3RhdGlzdGljIG1hbnVhbGx5IChnb2FsOiAzMy41NylcbiMgdGhpcyBkYXRhIHNldCBoYXMgbm8gbWlzc2luZyB2YWx1ZXMgc28gdGhpcyBzaW1wbGlmaWVkIGNvZGUgXG4jIGZvciB0aGUgb3ZlcmFsbCBtZWFuIGlzIHRoZSBzYW1lIGFzIHRoZSBtZWFuIG9mIHdhdmUtbWVhbnNcbiMgdmVyaWZpYWJsZSBpbiB0aGUgc3RhdF9jYWxjLnR4dCBvdXRwdXRcbnM1MGFfYyA8LSBzNTBhIC0gbWVhbihzNTBhKSAjRmluZSBzaW5jZSBjb21wb3NpdGlvbiBpcyB0aGUgc2FtZSAmIG5vIG1pc3NpbmdzLlxuXG4jIG1hbnVhbGx5IGNhbGN1bGF0ZSB0aGUgc3RhdGlzdGljXG5zdW0oczUwYV9jWywyXSAqIGdhcHBseShzNTAxLCBNQVJHSU49MSwgU1RBVFM9czUwYV9jWywyXSwgRlVOPW1lYW4sIG5hLnJtPVQpLCBuYS5ybT1UKVxuYGBgIn0= -->
-<pre class="r"><code>### run a model using data included with RSiena
-# This will print a report called stat_calc.txt in the working directory
-mynet1 &lt;- sienaDependent(array(c(s501, s502), dim=c(50, 50, 2)))
-s50a &lt;- s50a[,1:2]
-mybeh &lt;- sienaDependent(s50a, type=&quot;behavior&quot;)
-sDat &lt;- sienaDataCreate(mynet1, mybeh)
-eff &lt;- getEffects(sDat)
-eff &lt;- includeEffects(eff, avAlt, interaction1=&quot;mynet1&quot;, type=&quot;eval&quot;, name=&quot;mybeh&quot;)
-alg &lt;- sienaAlgorithmCreate(projname=&quot;stat_calc&quot;)
-ans &lt;- siena07(alg, data=sDat, effects=eff, batch=T)
-
-### calculate the target statistic manually (goal: 33.57)
-# this data set has no missing values so this simplified code 
-# for the overall mean is the same as the mean of wave-means
-# verifiable in the stat_calc.txt output
-s50a_c &lt;- s50a - mean(s50a) #Fine since composition is the same &amp; no missings.
-
-# manually calculate the statistic
-sum(s50a_c[,2] * gapply(s501, MARGIN=1, STATS=s50a_c[,2], FUN=mean, na.rm=T), na.rm=T)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
+<div id="model-setup" class="section level1">
+<h1>Model setup</h1>
 <p>#Create 2-wave s50 network Data from Scottish study of alc and tobacco use in adolescents n=50</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -1919,27 +1894,19 @@ algOb &lt;- sienaAlgorithmCreate(projname=&quot;s50Alc&quot;)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJpbnQoZWZmT2IsIGV4cGFuZCA9IFRSVUUpIFxuYGBgIn0= -->
 <pre class="r"><code>print(effOb, expand = TRUE) </code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICBuYW1lICAgZWZmZWN0TmFtZSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluY2x1ZGUgZml4ICAgdGVzdCAgaW5pdGlhbFZhbHVlIHBhcm0gZWZmZWN0MVxuMSBteW5ldDEgYmFzaWMgcmF0ZSBwYXJhbWV0ZXIgbXluZXQxICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgNC42OTYwNCAgIDAgICAgICAwICAgIFxuMiBteW5ldDEgb3V0ZGVncmVlIChkZW5zaXR5KSAgICAgICAgICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAtMS40ODg1MiAgIDAgICAgICAwICAgIFxuMyBteW5ldDEgcmVjaXByb2NpdHkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC4wMDAwMCAgIDAgICAgICAwICAgIFxuNCBhbGNVc2UgcmF0ZSBhbGNVc2UgcGVyaW9kIDEgICAgICAgICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC43MDU3MSAgIDAgICAgICAwICAgIFxuNSBhbGNVc2UgYWxjVXNlIGxpbmVhciBzaGFwZSAgICAgICAgICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC4zMjI0NyAgIDAgICAgICAwICAgIFxuNiBhbGNVc2UgYWxjVXNlIHF1YWRyYXRpYyBzaGFwZSAgICAgICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC4wMDAwMCAgIDAgICAgICAwICAgIFxuNyBhbGNVc2UgaW50LiAgYWxjVXNlIGF2ZXJhZ2UgYWx0ZXIgeCBhbGNVc2UgbG9QYXNzIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC4wMDAwMCAgIDAgICAgNDIwICAgIFxuICBlZmZlY3QyXG4xICAgMCAgICBcbjIgICAwICAgIFxuMyAgIDAgICAgXG40ICAgMCAgICBcbjUgICAwICAgIFxuNiAgIDAgICAgXG43IDM4MSAgICBcbiJ9 -->
-<pre><code>  name   effectName                                 include fix   test  initialValue parm effect1
-1 mynet1 basic rate parameter mynet1                TRUE    FALSE FALSE    4.69604   0      0    
-2 mynet1 outdegree (density)                        TRUE    FALSE FALSE   -1.48852   0      0    
-3 mynet1 reciprocity                                TRUE    FALSE FALSE    0.00000   0      0    
-4 alcUse rate alcUse period 1                       TRUE    FALSE FALSE    0.70571   0      0    
-5 alcUse alcUse linear shape                        TRUE    FALSE FALSE    0.32247   0      0    
-6 alcUse alcUse quadratic shape                     TRUE    FALSE FALSE    0.00000   0      0    
-7 alcUse int.  alcUse average alter x alcUse loPass TRUE    FALSE FALSE    0.00000   0    420    
-  effect2
-1   0    
-2   0    
-3   0    
-4   0    
-5   0    
-6   0    
-7 381    </code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiICBuYW1lICAgZWZmZWN0TmFtZSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluY2x1ZGUgZml4ICAgdGVzdCAgaW5pdGlhbFZhbHVlIHBhcm0gZWZmZWN0MSBlZmZlY3QyXG4xIG15bmV0MSBiYXNpYyByYXRlIHBhcmFtZXRlciBteW5ldDEgICAgICAgICAgICAgICAgVFJVRSAgICBGQUxTRSBGQUxTRSAgICA0LjY5NjA0ICAgMCAgICAgIDAgICAgICAgMCAgICBcbjIgbXluZXQxIG91dGRlZ3JlZSAoZGVuc2l0eSkgICAgICAgICAgICAgICAgICAgICAgICBUUlVFICAgIEZBTFNFIEZBTFNFICAgLTEuNDg4NTIgICAwICAgICAgMCAgICAgICAwICAgIFxuMyBteW5ldDEgcmVjaXByb2NpdHkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC4wMDAwMCAgIDAgICAgICAwICAgICAgIDAgICAgXG40IGFsY1VzZSByYXRlIGFsY1VzZSBwZXJpb2QgMSAgICAgICAgICAgICAgICAgICAgICAgVFJVRSAgICBGQUxTRSBGQUxTRSAgICAwLjcwNTcxICAgMCAgICAgIDAgICAgICAgMCAgICBcbjUgYWxjVXNlIGFsY1VzZSBsaW5lYXIgc2hhcGUgICAgICAgICAgICAgICAgICAgICAgICBUUlVFICAgIEZBTFNFIEZBTFNFICAgIDAuMzIyNDcgICAwICAgICAgMCAgICAgICAwICAgIFxuNiBhbGNVc2UgYWxjVXNlIHF1YWRyYXRpYyBzaGFwZSAgICAgICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC4wMDAwMCAgIDAgICAgICAwICAgICAgIDAgICAgXG43IGFsY1VzZSBpbnQuICBhbGNVc2UgYXZlcmFnZSBhbHRlciB4IGFsY1VzZSBsb1Bhc3MgVFJVRSAgICBGQUxTRSBGQUxTRSAgICAwLjAwMDAwICAgMCAgICA0MjAgICAgIDM4MSAgICBcbiJ9 -->
+<pre><code>  name   effectName                                 include fix   test  initialValue parm effect1 effect2
+1 mynet1 basic rate parameter mynet1                TRUE    FALSE FALSE    4.69604   0      0       0    
+2 mynet1 outdegree (density)                        TRUE    FALSE FALSE   -1.48852   0      0       0    
+3 mynet1 reciprocity                                TRUE    FALSE FALSE    0.00000   0      0       0    
+4 alcUse rate alcUse period 1                       TRUE    FALSE FALSE    0.70571   0      0       0    
+5 alcUse alcUse linear shape                        TRUE    FALSE FALSE    0.32247   0      0       0    
+6 alcUse alcUse quadratic shape                     TRUE    FALSE FALSE    0.00000   0      0       0    
+7 alcUse int.  alcUse average alter x alcUse loPass TRUE    FALSE FALSE    0.00000   0    420     381    </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>#Show effects table</p>
+<p>###Create HTML effects table</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZWZmZWN0c0RvY3VtZW50YXRpb24oZWZmT2IsIGZpbGVuYW1lID0gXCJzNTBlZmZ4XCIpXG5gYGAifQ== -->
@@ -1947,6 +1914,7 @@ algOb &lt;- sienaAlgorithmCreate(projname=&quot;s50Alc&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>#Run model</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVzT2IgPC0gc2llbmEwNyhhbGdPYiwgZGF0YT1kYXRhT2IsIGVmZmVjdHM9ZWZmT2IsIGJhdGNoPVQpXG5gYGAifQ== -->
@@ -1955,7 +1923,7 @@ algOb &lt;- sienaAlgorithmCreate(projname=&quot;s50Alc&quot;)</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>#Calculate stats manually</p>
-<p>##Center alcUse</p>
+<p>###Center alcUse</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0NlbnRlciB0aGUgYWxjIHZhcmlhYmxlXG5zNTBhX2MgPC0gczUwYSAtIG1lYW4oczUwYSlcbmBgYCJ9 -->
@@ -1964,20 +1932,20 @@ s50a_c &lt;- s50a - mean(s50a)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>###avAlt statistic</p>
+<p>###avAlt statistic [verfified OK]</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXZBbHQudmVjIDwtIGlmZWxzZShpcy5uYSwgMCwgYXZBbHQudmVjKVxuXG5gYGAifQ== -->
-<pre class="r"><code>avAlt.vec &lt;- ifelse(is.na, 0, avAlt.vec)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0NhbGMgYXYgYWx0IHBlciBpbmRpdmlkdWFsXG5hdkFsdC52ZWMgPC0gczUwYV9jWywyXSAqIGdhcHBseShzNTAxLCBNQVJHSU49MSwgU1RBVFM9czUwYV9jWywyXSwgRlVOPW1lYW4sIG5hLnJtPVQpIFxuI1JlbW92ZSBOYU5zIChzb21lIGVnb3MgY2hvc2Ugbm8gYWx0ZXJzKVxuYXZBbHQudmVjIDwtIGlmZWxzZShpcy5uYShhdkFsdC52ZWMpLCAwLCBhdkFsdC52ZWMpXG4jQ2FsY3VsYXRlIHRoZSB0b3RhbCBzdGF0aXNpYy4gU2hvdWxkIGJlIDMzLjU3XG5hdkFsdC5jYWxjIDwtIHN1bShhdkFsdC52ZWMpXG5gYGAifQ== -->
+<pre class="r"><code>#Calc av alt per individual
+avAlt.vec &lt;- s50a_c[,2] * gapply(s501, MARGIN=1, STATS=s50a_c[,2], FUN=mean, na.rm=T) 
+#Remove NaNs (some egos chose no alters)
+avAlt.vec &lt;- ifelse(is.na(avAlt.vec), 0, avAlt.vec)
+#Calculate the total statisic. Should be 33.57
+avAlt.calc &lt;- sum(avAlt.vec)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gYXMubG9naWNhbCh0ZXN0KSA6IFxuICBjYW5ub3QgY29lcmNlIHR5cGUgJ2J1aWx0aW4nIHRvIHZlY3RvciBvZiB0eXBlICdsb2dpY2FsJ1xuIn0= -->
-<pre><code>Error in as.logical(test) : 
-  cannot coerce type &#39;builtin&#39; to vector of type &#39;logical&#39;</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>###Quad effect statistic</p>
+<p>###Quad effect statistic [verified OK]</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtKHM1MGFfY1ssMl0qczUwYV9jWywyXSlcbmBgYCJ9 -->
@@ -1988,7 +1956,7 @@ s50a_c &lt;- s50a - mean(s50a)</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>###loPass effect statistic</p>
+<p>###loPass effect statistic [verified OK]</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9QYXNzLmNhbGMgPC0gc3VtKDEvKGV4cChzNTBhX2NbLDJdKSsxKSlcbmBgYCJ9 -->
@@ -2011,18 +1979,26 @@ s50a_c &lt;- s50a - mean(s50a)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>###4loPass x avAlt statistic</p>
+<p>###4loPass x avAlt statistic This one is NOT correct. RSiena calculates this interaction to have a statistic of -1.33</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGlzY0F2QWx0IDwtIHN1bShsb1Bhc3MudmVjICogYXZBbHQudmVjKVxuYGBgIn0= -->
-<pre class="r"><code>discAvAlt &lt;- sum(loPass.vec * avAlt.vec)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGlzY0F2QWx0MiA8LSBzdW0oYXZBbHQudmVjICogbG9QYXNzLnZlYylcbmBgYCJ9 -->
+<pre class="r"><code>discAvAlt2 &lt;- sum(avAlt.vec * loPass.vec)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>An alternative</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9QYXNzLmNhbGMgKiBcbmBgYCJ9 -->
+<pre class="r"><code>loPass.calc * </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIk1vZGVsIHM1MDEgVGVzdCBEYXRhIg0KYXV0aG9yOiAiSk1MIg0KZGF0ZTogIlNlcHRlbWJlciAyNiwgMjAxOCAvIEphbnVhcnkgMjUsIDIwMjEiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojI0xvYWQgTGlicmFyaWVzIChmb3IgQVdTKQ0KYGBge3J9DQpwYWNrYWdlcyA8LSBjKCJoYXZlbiIsICJ0aWR5dmVyc2UiLA0KICAgICAgICAgICAgICAiTWF0cml4IiwgImRhdGEudGFibGUiLCAiZHRwbHlyIiwgIlJTaWVuYSIsICJybWFya2Rvd24iKQ0KaWYgKGxlbmd0aChzZXRkaWZmKHBhY2thZ2VzLCByb3duYW1lcyhpbnN0YWxsZWQucGFja2FnZXMoKSkpKSA+IDApIHsNCiAgaW5zdGFsbC5wYWNrYWdlcyhzZXRkaWYocGFja2FnZmVzLCByb3duYW1lcyhpbnN0YWxsZWQucGFja2FnZXMoKSkpKQ0KfQ0KbGFwcGx5KHBhY2thZ2VzLCBsaWJyYXJ5LCBjaGFyYWN0ZXIub25seSA9IFRSVUUpDQpgYGANCg0KIyNMb2FkIG9yIHNhdmUgd29ya3NwYWNlDQpgYGB7cn0NCmxvYWQoInM1MDEuUkRhdGEiKQ0KYGBgDQoNCmBgYHtyfQ0Kc2F2ZS5pbWFnZSgiczUwMS5SRGF0YSIpDQpgYGANCiMjIE1vZGVsIHNldHVwDQoNCmBgYHtyfQ0KIyMjIHJ1biBhIG1vZGVsIHVzaW5nIGRhdGEgaW5jbHVkZWQgd2l0aCBSU2llbmENCiMgVGhpcyB3aWxsIHByaW50IGEgcmVwb3J0IGNhbGxlZCBzdGF0X2NhbGMudHh0IGluIHRoZSB3b3JraW5nIGRpcmVjdG9yeQ0KbXluZXQxIDwtIHNpZW5hRGVwZW5kZW50KGFycmF5KGMoczUwMSwgczUwMiksIGRpbT1jKDUwLCA1MCwgMikpKQ0KczUwYSA8LSBzNTBhWywxOjJdDQpteWJlaCA8LSBzaWVuYURlcGVuZGVudChzNTBhLCB0eXBlPSJiZWhhdmlvciIpDQpzRGF0IDwtIHNpZW5hRGF0YUNyZWF0ZShteW5ldDEsIG15YmVoKQ0KZWZmIDwtIGdldEVmZmVjdHMoc0RhdCkNCmVmZiA8LSBpbmNsdWRlRWZmZWN0cyhlZmYsIGF2QWx0LCBpbnRlcmFjdGlvbjE9Im15bmV0MSIsIHR5cGU9ImV2YWwiLCBuYW1lPSJteWJlaCIpDQphbGcgPC0gc2llbmFBbGdvcml0aG1DcmVhdGUocHJvam5hbWU9InN0YXRfY2FsYyIpDQphbnMgPC0gc2llbmEwNyhhbGcsIGRhdGE9c0RhdCwgZWZmZWN0cz1lZmYsIGJhdGNoPVQpDQoNCiMjIyBjYWxjdWxhdGUgdGhlIHRhcmdldCBzdGF0aXN0aWMgbWFudWFsbHkgKGdvYWw6IDMzLjU3KQ0KIyB0aGlzIGRhdGEgc2V0IGhhcyBubyBtaXNzaW5nIHZhbHVlcyBzbyB0aGlzIHNpbXBsaWZpZWQgY29kZSANCiMgZm9yIHRoZSBvdmVyYWxsIG1lYW4gaXMgdGhlIHNhbWUgYXMgdGhlIG1lYW4gb2Ygd2F2ZS1tZWFucw0KIyB2ZXJpZmlhYmxlIGluIHRoZSBzdGF0X2NhbGMudHh0IG91dHB1dA0KczUwYV9jIDwtIHM1MGEgLSBtZWFuKHM1MGEpICNGaW5lIHNpbmNlIGNvbXBvc2l0aW9uIGlzIHRoZSBzYW1lICYgbm8gbWlzc2luZ3MuDQoNCiMgbWFudWFsbHkgY2FsY3VsYXRlIHRoZSBzdGF0aXN0aWMNCnN1bShzNTBhX2NbLDJdICogZ2FwcGx5KHM1MDEsIE1BUkdJTj0xLCBTVEFUUz1zNTBhX2NbLDJdLCBGVU49bWVhbiwgbmEucm09VCksIG5hLnJtPVQpDQpgYGANCg0KI0NyZWF0ZSAyLXdhdmUgczUwIG5ldHdvcmsgDQpEYXRhIGZyb20gU2NvdHRpc2ggc3R1ZHkgb2YgYWxjIGFuZCB0b2JhY2NvIHVzZSBpbiBhZG9sZXNjZW50cw0Kbj01MA0KYGBge3J9DQpteW5ldDEgPC0gc2llbmFEZXBlbmRlbnQoYXJyYXkoYyhzNTAxLCBzNTAyKSwgZGltPWMoNTAsIDUwLCAyKSkpDQpgYGANCg0KI0NyZWF0ZSBzNTAgQWxjIFVzZSB2YXJpYWJsZQ0KYGBge3J9DQpzNTBhIDwtIHM1MGFbLDE6Ml0NCmFsY1VzZSA8LSBzaWVuYURlcGVuZGVudChzNTBhLCB0eXBlPSJiZWhhdmlvciIpDQpgYGANCg0KI3M1MCBkYXRhT2JqLCBlZmZPYmosIGFsZ09iag0KYGBge3J9DQpkYXRhT2IgPC0gc2llbmFEYXRhQ3JlYXRlKG15bmV0MSwgYWxjVXNlKQ0KZWZmT2IgPC0gZ2V0RWZmZWN0cyhkYXRhT2IpDQphbGdPYiA8LSBzaWVuYUFsZ29yaXRobUNyZWF0ZShwcm9qbmFtZT0iczUwQWxjIikNCmBgYA0KI3M1MCBBZGQgRWZmZWN0cw0KYGBge3J9DQplZmZPYiA8LSBpbmNsdWRlRWZmZWN0cyhlZmZPYiwgYXZBbHQsIGludGVyYWN0aW9uMT0ibXluZXQxIiwgdHlwZT0iZXZhbCIsDQogICAgICAgICAgICAgICAgICAgICAgICBuYW1lPSJhbGNVc2UiLCBpbmNsdWRlPUYpDQplZmZPYiA8LSBpbmNsdWRlRWZmZWN0cyhlZmZPYiwgbG9QYXNzLCB0eXBlID0gImV2YWwiLA0KICAgICAgICAgICAgICAgICAgICAgICAgbmFtZSA9ICJhbGNVc2UiLCBpbmNsdWRlPUYpDQplZmZPYiA8LSBpbmNsdWRlSW50ZXJhY3Rpb24oZWZmT2IsIG5hbWUgPSAiYWxjVXNlIiwgdHlwZSA9ICJldmFsIiwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhdkFsdCwgbG9QYXNzLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGludGVyYWN0aW9uMSA9IGMoIm15bmV0MSIsICIiKSkNCmBgYA0KI0xvb2sgYXQgZWZmZWN0cyBvYmoNCmBgYHtyfQ0KcHJpbnQoZWZmT2IsIGV4cGFuZCA9IFRSVUUpIA0KYGBgDQojU2hvdyBlZmZlY3RzIHRhYmxlDQpgYGB7cn0NCmVmZmVjdHNEb2N1bWVudGF0aW9uKGVmZk9iLCBmaWxlbmFtZSA9ICJzNTBlZmZ4IikNCmBgYA0KDQoNCmBgYHtyfQ0KcmVzT2IgPC0gc2llbmEwNyhhbGdPYiwgZGF0YT1kYXRhT2IsIGVmZmVjdHM9ZWZmT2IsIGJhdGNoPVQpDQpgYGANCg0KDQojQ2FsY3VsYXRlIHN0YXRzIG1hbnVhbGx5DQoNCiMjQ2VudGVyIGFsY1VzZQ0KYGBge3J9DQojQ2VudGVyIHRoZSBhbGMgdmFyaWFibGUNCnM1MGFfYyA8LSBzNTBhIC0gbWVhbihzNTBhKQ0KYGBgDQoNCiMjI2F2QWx0IHN0YXRpc3RpYw0KYGBge3J9DQojQ2FsYyBhdiBhbHQgcGVyIGluZGl2aWR1YWwNCmF2QWx0LnZlYyA8LSBzNTBhX2NbLDJdICogZ2FwcGx5KHM1MDEsIE1BUkdJTj0xLCBTVEFUUz1zNTBhX2NbLDJdLCBGVU49bWVhbiwgbmEucm09VCkgDQojUmVtb3ZlIE5hTnMgKHNvbWUgZWdvcyBjaG9zZSBubyBhbHRlcnMpDQphdkFsdC52ZWMgPC0gaWZlbHNlKGlzLm5hKGF2QWx0LnZlYyksIDAsIGF2QWx0LnZlYykNCiNDYWxjdWxhdGUgdGhlIHRvdGFsIHN0YXRpc2ljLiBTaG91bGQgYmUgMzMuNTcNCmF2QWx0LmNhbGMgPC0gc3VtKGF2QWx0LnZlYykNCmBgYA0KDQojIyNRdWFkIGVmZmVjdCBzdGF0aXN0aWMNCmBgYHtyfQ0KI1Nob3VsZCBiZSA3MS4xMDUNCnN1bShzNTBhX2NbLDJdKnM1MGFfY1ssMl0pDQpgYGANCg0KIyMjbG9QYXNzIGVmZmVjdCBzdGF0aXN0aWMNCmBgYHtyfQ0KI1Nob3VsZCBiZSAyNC4xNTY3DQpsb1Bhc3MuY2FsYyA8LSBzdW0oMS8oZXhwKHM1MGFfY1ssMl0pKzEpKQ0KYGBgDQoNCiMjI2xvUGFzcyB2YWx1ZXMgZm9yIGVhY2ggaW5kaXZpZHVhbCANCmBgYHtyfQ0KbG9QYXNzLnZlYyA8LSAxLyhleHAoczUwYV9jWywyXSkrMSkNCmBgYA0KDQpgYGB7cn0NCnM1MGFfY1ssMl0NCmBgYA0KDQojIyM0bG9QYXNzIHggYXZBbHQgc3RhdGlzdGljDQpgYGB7cn0NCmRpc2NBdkFsdCA8LSBzdW0obG9QYXNzLnZlYyAqIGF2QWx0LnZlYykNCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIk1vZGVsIHM1MDEgVGVzdCBEYXRhIg0KYXV0aG9yOiAiSk1MIg0KZGF0ZTogIlNlcHRlbWJlciAyNiwgMjAxOCAvIEphbnVhcnkgMjUsIDIwMjEiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojI0xvYWQgTGlicmFyaWVzIChmb3IgQVdTKQ0KYGBge3J9DQpwYWNrYWdlcyA8LSBjKCJoYXZlbiIsICJ0aWR5dmVyc2UiLA0KICAgICAgICAgICAgICAiTWF0cml4IiwgImRhdGEudGFibGUiLCAiZHRwbHlyIiwgIlJTaWVuYSIsICJybWFya2Rvd24iKQ0KaWYgKGxlbmd0aChzZXRkaWZmKHBhY2thZ2VzLCByb3duYW1lcyhpbnN0YWxsZWQucGFja2FnZXMoKSkpKSA+IDApIHsNCiAgaW5zdGFsbC5wYWNrYWdlcyhzZXRkaWYocGFja2FnZmVzLCByb3duYW1lcyhpbnN0YWxsZWQucGFja2FnZXMoKSkpKQ0KfQ0KbGFwcGx5KHBhY2thZ2VzLCBsaWJyYXJ5LCBjaGFyYWN0ZXIub25seSA9IFRSVUUpDQpgYGANCg0KIyNMb2FkIG9yIHNhdmUgd29ya3NwYWNlDQpgYGB7cn0NCmxvYWQoInM1MDEuUkRhdGEiKQ0KYGBgDQoNCmBgYHtyfQ0Kc2F2ZS5pbWFnZSgiczUwMS5SRGF0YSIpDQpgYGANCiMgTW9kZWwgc2V0dXANCg0KI0NyZWF0ZSAyLXdhdmUgczUwIG5ldHdvcmsgDQpEYXRhIGZyb20gU2NvdHRpc2ggc3R1ZHkgb2YgYWxjIGFuZCB0b2JhY2NvIHVzZSBpbiBhZG9sZXNjZW50cw0Kbj01MA0KYGBge3J9DQpteW5ldDEgPC0gc2llbmFEZXBlbmRlbnQoYXJyYXkoYyhzNTAxLCBzNTAyKSwgZGltPWMoNTAsIDUwLCAyKSkpDQpgYGANCg0KI0NyZWF0ZSBzNTAgQWxjIFVzZSB2YXJpYWJsZQ0KYGBge3J9DQpzNTBhIDwtIHM1MGFbLDE6Ml0NCmFsY1VzZSA8LSBzaWVuYURlcGVuZGVudChzNTBhLCB0eXBlPSJiZWhhdmlvciIpDQpgYGANCg0KI3M1MCBkYXRhT2JqLCBlZmZPYmosIGFsZ09iag0KYGBge3J9DQpkYXRhT2IgPC0gc2llbmFEYXRhQ3JlYXRlKG15bmV0MSwgYWxjVXNlKQ0KZWZmT2IgPC0gZ2V0RWZmZWN0cyhkYXRhT2IpDQphbGdPYiA8LSBzaWVuYUFsZ29yaXRobUNyZWF0ZShwcm9qbmFtZT0iczUwQWxjIikNCmBgYA0KI3M1MCBBZGQgRWZmZWN0cw0KYGBge3J9DQplZmZPYiA8LSBpbmNsdWRlRWZmZWN0cyhlZmZPYiwgYXZBbHQsIGludGVyYWN0aW9uMT0ibXluZXQxIiwgdHlwZT0iZXZhbCIsDQogICAgICAgICAgICAgICAgICAgICAgICBuYW1lPSJhbGNVc2UiLCBpbmNsdWRlPUYpDQplZmZPYiA8LSBpbmNsdWRlRWZmZWN0cyhlZmZPYiwgbG9QYXNzLCB0eXBlID0gImV2YWwiLA0KICAgICAgICAgICAgICAgICAgICAgICAgbmFtZSA9ICJhbGNVc2UiLCBpbmNsdWRlPUYpDQplZmZPYiA8LSBpbmNsdWRlSW50ZXJhY3Rpb24oZWZmT2IsIG5hbWUgPSAiYWxjVXNlIiwgdHlwZSA9ICJldmFsIiwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhdkFsdCwgbG9QYXNzLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGludGVyYWN0aW9uMSA9IGMoIm15bmV0MSIsICIiKSkNCmBgYA0KI0xvb2sgYXQgZWZmZWN0cyBvYmoNCmBgYHtyfQ0KcHJpbnQoZWZmT2IsIGV4cGFuZCA9IFRSVUUpIA0KYGBgDQoNCiMjI0NyZWF0ZSBIVE1MIGVmZmVjdHMgdGFibGUNCmBgYHtyfQ0KZWZmZWN0c0RvY3VtZW50YXRpb24oZWZmT2IsIGZpbGVuYW1lID0gInM1MGVmZngiKQ0KYGBgDQoNCiNSdW4gbW9kZWwNCmBgYHtyfQ0KcmVzT2IgPC0gc2llbmEwNyhhbGdPYiwgZGF0YT1kYXRhT2IsIGVmZmVjdHM9ZWZmT2IsIGJhdGNoPVQpDQpgYGANCg0KDQojQ2FsY3VsYXRlIHN0YXRzIG1hbnVhbGx5DQoNCiMjI0NlbnRlciBhbGNVc2UNCmBgYHtyfQ0KI0NlbnRlciB0aGUgYWxjIHZhcmlhYmxlDQpzNTBhX2MgPC0gczUwYSAtIG1lYW4oczUwYSkNCmBgYA0KDQojIyNhdkFsdCBzdGF0aXN0aWMgW3ZlcmZpZmllZCBPS10NCmBgYHtyfQ0KI0NhbGMgYXYgYWx0IHBlciBpbmRpdmlkdWFsDQphdkFsdC52ZWMgPC0gczUwYV9jWywyXSAqIGdhcHBseShzNTAxLCBNQVJHSU49MSwgU1RBVFM9czUwYV9jWywyXSwgRlVOPW1lYW4sIG5hLnJtPVQpIA0KI1JlbW92ZSBOYU5zIChzb21lIGVnb3MgY2hvc2Ugbm8gYWx0ZXJzKQ0KYXZBbHQudmVjIDwtIGlmZWxzZShpcy5uYShhdkFsdC52ZWMpLCAwLCBhdkFsdC52ZWMpDQojQ2FsY3VsYXRlIHRoZSB0b3RhbCBzdGF0aXNpYy4gU2hvdWxkIGJlIDMzLjU3DQphdkFsdC5jYWxjIDwtIHN1bShhdkFsdC52ZWMpDQpgYGANCg0KIyMjUXVhZCBlZmZlY3Qgc3RhdGlzdGljIFt2ZXJpZmllZCBPS10NCmBgYHtyfQ0KI1Nob3VsZCBiZSA3MS4xMDUNCnN1bShzNTBhX2NbLDJdKnM1MGFfY1ssMl0pDQpgYGANCg0KIyMjbG9QYXNzIGVmZmVjdCBzdGF0aXN0aWMgW3ZlcmlmaWVkIE9LXQ0KYGBge3J9DQojU2hvdWxkIGJlIDI0LjE1NjcNCmxvUGFzcy5jYWxjIDwtIHN1bSgxLyhleHAoczUwYV9jWywyXSkrMSkpDQpgYGANCg0KIyMjbG9QYXNzIHZhbHVlcyBmb3IgZWFjaCBpbmRpdmlkdWFsIA0KYGBge3J9DQpsb1Bhc3MudmVjIDwtIDEvKGV4cChzNTBhX2NbLDJdKSsxKQ0KYGBgDQoNCmBgYHtyfQ0KczUwYV9jWywyXQ0KYGBgDQoNCiMjIzRsb1Bhc3MgeCBhdkFsdCBzdGF0aXN0aWMNClRoaXMgb25lIGlzIE5PVCBjb3JyZWN0LiBSU2llbmEgY2FsY3VsYXRlcyB0aGlzIGludGVyYWN0aW9uIHRvIGhhdmUNCmEgc3RhdGlzdGljIG9mIC0xLjMzDQpgYGB7cn0NCmRpc2NBdkFsdCA8LSBzdW0oYXZBbHQudmVjICogbG9QYXNzLnZlYykNCmBgYA0KDQpBbiBhbHRlcm5hdGl2ZQ0KYGBge3J9DQpsb1Bhc3MuY2FsYyAqIA0KYGBgDQoNCg0K</div>
 
 
 
