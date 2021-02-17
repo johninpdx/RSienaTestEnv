@@ -7,8 +7,8 @@ output: html_notebook
 
 ##Load Libraries (for AWS)
 ```{r}
-packages <- c("haven", "tidyverse",
-              "Matrix", "data.table", "dtplyr", "RSiena", "rmarkdown")
+packages <- c("haven", "tidyverse", "sna",
+              "Matrix", "dtplyr", "RSiena", "rmarkdown")
 if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
   install.packages(setdif(packagfes, rownames(installed.packages())))
 }
@@ -46,13 +46,37 @@ algOb <- sienaAlgorithmCreate(projname="s50Alc")
 ```
 #s50 Add Effects
 ```{r}
-effOb <- includeEffects(effOb, avAlt, interaction1="mynet1", type="eval",
-                        name="alcUse", include=F)
+effOb <- includeEffects(effOb, avAlt, 
+                        interaction1="mynet1", type="eval", name="alcUse", 
+                        include=F)
+effOb <- includeEffects(effOb, avAltLoPass, 
+                        interaction1="mynet1", type="eval", name="alcUse", 
+                        include=T,
+                        parameter = 6)
+effOb <- setEffect(effOb, avAltLoPass, 
+                        interaction1="mynet1", type="eval", name="alcUse", 
+                        include=T,
+                        parameter = 3)
+
 effOb <- includeEffects(effOb, loPass, type = "eval",
                         name = "alcUse", include=F)
+effOb <- includeEffects(effOb, loPassStep, type = "eval",
+                        name = "alcUse", include=F)
+effPb <- includeEffects(effOb, linear, type = "eval",
+                        name = "alcUse", include = F)
+
 effOb <- includeInteraction(effOb, name = "alcUse", type = "eval",
                             avAlt, loPass,
-                            interaction1 = c("mynet1", ""))
+                            interaction1 = c("mynet1", ""),
+                            include = F)
+
+effOb <- includeInteraction(effOb, name = "alcUse", type = "eval",
+                            avAlt, loPassStep,
+                            parameter = -2,
+                            interaction1 = c("mynet1", ""),
+                            include = T)
+
+effob <- includeEffects(effOb, avAlk)
 ```
 #Look at effects obj
 ```{r}
@@ -66,11 +90,16 @@ effectsDocumentation(effOb, filename = "s50effx")
 
 #Run model
 ```{r}
-resOb <- siena07(algOb, data=dataOb, effects=effOb, batch=T)
+resOb3 <- siena07(algOb, data=dataOb, effects=effOb, batch=F, prevAns = resOb2,
+                  useCluster = T, nbrNodes = 4)
 ```
 
+===========================================================================================================
+===========================================================================================================
 
 #Calculate stats manually
+NOTE:
+  s50a has a mean of 2.99 and a range of 1-5
 
 ###Center alcUse
 ```{r}
@@ -87,6 +116,20 @@ avAlt.vec <- ifelse(is.na(avAlt.vec), 0, avAlt.vec)
 #Calculate the total statisic. Should be 33.57
 avAlt.calc <- sum(avAlt.vec)
 ```
+
+###avAlt statistic p=3, about the mean.
+```{r}
+#Calc av alt per individual
+s50ac.p3 <- s50a_c
+s50ac.p3[,2] <- ifelse(s50ac.p3[,2] >= 2, 0, s50ac.p3[,2])
+
+avAltp3.vec <- s50ac.p3[,2] * gapply(s501, MARGIN=1, STATS=s50a_c[,2], FUN=mean, na.rm=T) 
+#Remove NaNs (some egos chose no alters)
+avAltp3.vec <- ifelse(is.na(avAltp3.vec), 0, avAltp3.vec)
+#Calculate the total statisic. Should be 8.9098
+avAltp3.calc <- sum(avAltp3.vec)
+```
+
 
 ###Quad effect statistic [verified OK]
 ```{r}
@@ -116,9 +159,5 @@ a statistic of -1.33
 discAvAlt <- sum(avAlt.vec * loPass.vec)
 ```
 
-An alternative
-```{r}
-loPass.calc * 
-```
 
 

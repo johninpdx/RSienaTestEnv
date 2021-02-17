@@ -1816,9 +1816,9 @@ summary {
 <p>##Load Libraries (for AWS)</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGFja2FnZXMgPC0gYyhcImhhdmVuXCIsIFwidGlkeXZlcnNlXCIsXG4gICAgICAgICAgICAgIFwiTWF0cml4XCIsIFwiZGF0YS50YWJsZVwiLCBcImR0cGx5clwiLCBcIlJTaWVuYVwiLCBcInJtYXJrZG93blwiKVxuaWYgKGxlbmd0aChzZXRkaWZmKHBhY2thZ2VzLCByb3duYW1lcyhpbnN0YWxsZWQucGFja2FnZXMoKSkpKSA+IDApIHtcbiAgaW5zdGFsbC5wYWNrYWdlcyhzZXRkaWYocGFja2FnZmVzLCByb3duYW1lcyhpbnN0YWxsZWQucGFja2FnZXMoKSkpKVxufVxubGFwcGx5KHBhY2thZ2VzLCBsaWJyYXJ5LCBjaGFyYWN0ZXIub25seSA9IFRSVUUpXG5gYGAifQ== -->
-<pre class="r"><code>packages &lt;- c(&quot;haven&quot;, &quot;tidyverse&quot;,
-              &quot;Matrix&quot;, &quot;data.table&quot;, &quot;dtplyr&quot;, &quot;RSiena&quot;, &quot;rmarkdown&quot;)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGFja2FnZXMgPC0gYyhcImhhdmVuXCIsIFwidGlkeXZlcnNlXCIsIFwic25hXCIsXG4gICAgICAgICAgICAgIFwiTWF0cml4XCIsIFwiZHRwbHlyXCIsIFwiUlNpZW5hXCIsIFwicm1hcmtkb3duXCIpXG5pZiAobGVuZ3RoKHNldGRpZmYocGFja2FnZXMsIHJvd25hbWVzKGluc3RhbGxlZC5wYWNrYWdlcygpKSkpID4gMCkge1xuICBpbnN0YWxsLnBhY2thZ2VzKHNldGRpZihwYWNrYWdmZXMsIHJvd25hbWVzKGluc3RhbGxlZC5wYWNrYWdlcygpKSkpXG59XG5sYXBwbHkocGFja2FnZXMsIGxpYnJhcnksIGNoYXJhY3Rlci5vbmx5ID0gVFJVRSlcbmBgYCJ9 -->
+<pre class="r"><code>packages &lt;- c(&quot;haven&quot;, &quot;tidyverse&quot;, &quot;sna&quot;,
+              &quot;Matrix&quot;, &quot;dtplyr&quot;, &quot;RSiena&quot;, &quot;rmarkdown&quot;)
 if (length(setdiff(packages, rownames(installed.packages()))) &gt; 0) {
   install.packages(setdif(packagfes, rownames(installed.packages())))
 }
@@ -1876,15 +1876,16 @@ algOb &lt;- sienaAlgorithmCreate(projname=&quot;s50Alc&quot;)</code></pre>
 <p>#s50 Add Effects</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZWZmT2IgPC0gaW5jbHVkZUludGVyYWN0aW9uKGVmZk9iLCBuYW1lID0gXCJhbGNVc2VcIiwgdHlwZSA9IFwiZXZhbFwiLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGF2QWx0LCBsb1Bhc3MsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ZXJhY3Rpb24xID0gYyhcIm15bmV0MVwiLCBcIlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>effOb &lt;- includeInteraction(effOb, name = &quot;alcUse&quot;, type = &quot;eval&quot;,
-                            avAlt, loPass,
-                            interaction1 = c(&quot;mynet1&quot;, &quot;&quot;))
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZWZmT2IgPC0gc2V0RWZmZWN0KGVmZk9iLCBhdkFsdExvUGFzcywgXG4gICAgICAgICAgICAgICAgICAgICAgICBpbnRlcmFjdGlvbjE9XCJteW5ldDFcIiwgdHlwZT1cImV2YWxcIiwgbmFtZT1cImFsY1VzZVwiLCBcbiAgICAgICAgICAgICAgICAgICAgICAgIGluY2x1ZGU9VCxcbiAgICAgICAgICAgICAgICAgICAgICAgIHBhcmFtZXRlciA9IDMpXG5cbmBgYCJ9 -->
+<pre class="r"><code>effOb &lt;- setEffect(effOb, avAltLoPass, 
+                        interaction1=&quot;mynet1&quot;, type=&quot;eval&quot;, name=&quot;alcUse&quot;, 
+                        include=T,
+                        parameter = 3)
 </code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICBlZmZlY3ROYW1lICAgICAgICAgICAgICAgICAgICAgIGluY2x1ZGUgZml4ICAgdGVzdCAgaW5pdGlhbFZhbHVlIHBhcm0gZWZmZWN0MSBlZmZlY3QyXG4xIGFsY1VzZTogdW5zcGVjaWZpZWQgaW50ZXJhY3Rpb24gVFJVRSAgICBGQUxTRSBGQUxTRSAgICAgICAgICAwICAgMCAgICA0MjAgICAgIDM4MSAgICBcbiJ9 -->
-<pre><code>  effectName                      include fix   test  initialValue parm effect1 effect2
-1 alcUse: unspecified interaction TRUE    FALSE FALSE          0   0    420     381    </code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiICBlZmZlY3ROYW1lICAgICAgICAgICAgICAgaW5jbHVkZSBmaXggICB0ZXN0ICBpbml0aWFsVmFsdWUgcGFybVxuMSBhbGNVc2UgYXZlLiBhbHRlciBMb1Bhc3MgVFJVRSAgICBGQUxTRSBGQUxTRSAgICAgICAgICAwICAgMyAgIFxuIn0= -->
+<pre><code>  effectName               include fix   test  initialValue parm
+1 alcUse ave. alter LoPass TRUE    FALSE FALSE          0   3   </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1894,15 +1895,15 @@ algOb &lt;- sienaAlgorithmCreate(projname=&quot;s50Alc&quot;)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJpbnQoZWZmT2IsIGV4cGFuZCA9IFRSVUUpIFxuYGBgIn0= -->
 <pre class="r"><code>print(effOb, expand = TRUE) </code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICBuYW1lICAgZWZmZWN0TmFtZSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluY2x1ZGUgZml4ICAgdGVzdCAgaW5pdGlhbFZhbHVlIHBhcm0gZWZmZWN0MSBlZmZlY3QyXG4xIG15bmV0MSBiYXNpYyByYXRlIHBhcmFtZXRlciBteW5ldDEgICAgICAgICAgICAgICAgVFJVRSAgICBGQUxTRSBGQUxTRSAgICA0LjY5NjA0ICAgMCAgICAgIDAgICAgICAgMCAgICBcbjIgbXluZXQxIG91dGRlZ3JlZSAoZGVuc2l0eSkgICAgICAgICAgICAgICAgICAgICAgICBUUlVFICAgIEZBTFNFIEZBTFNFICAgLTEuNDg4NTIgICAwICAgICAgMCAgICAgICAwICAgIFxuMyBteW5ldDEgcmVjaXByb2NpdHkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC4wMDAwMCAgIDAgICAgICAwICAgICAgIDAgICAgXG40IGFsY1VzZSByYXRlIGFsY1VzZSBwZXJpb2QgMSAgICAgICAgICAgICAgICAgICAgICAgVFJVRSAgICBGQUxTRSBGQUxTRSAgICAwLjcwNTcxICAgMCAgICAgIDAgICAgICAgMCAgICBcbjUgYWxjVXNlIGFsY1VzZSBsaW5lYXIgc2hhcGUgICAgICAgICAgICAgICAgICAgICAgICBUUlVFICAgIEZBTFNFIEZBTFNFICAgIDAuMzIyNDcgICAwICAgICAgMCAgICAgICAwICAgIFxuNiBhbGNVc2UgYWxjVXNlIHF1YWRyYXRpYyBzaGFwZSAgICAgICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC4wMDAwMCAgIDAgICAgICAwICAgICAgIDAgICAgXG43IGFsY1VzZSBpbnQuICBhbGNVc2UgYXZlcmFnZSBhbHRlciB4IGFsY1VzZSBsb1Bhc3MgVFJVRSAgICBGQUxTRSBGQUxTRSAgICAwLjAwMDAwICAgMCAgICA0MjAgICAgIDM4MSAgICBcbiJ9 -->
-<pre><code>  name   effectName                                 include fix   test  initialValue parm effect1 effect2
-1 mynet1 basic rate parameter mynet1                TRUE    FALSE FALSE    4.69604   0      0       0    
-2 mynet1 outdegree (density)                        TRUE    FALSE FALSE   -1.48852   0      0       0    
-3 mynet1 reciprocity                                TRUE    FALSE FALSE    0.00000   0      0       0    
-4 alcUse rate alcUse period 1                       TRUE    FALSE FALSE    0.70571   0      0       0    
-5 alcUse alcUse linear shape                        TRUE    FALSE FALSE    0.32247   0      0       0    
-6 alcUse alcUse quadratic shape                     TRUE    FALSE FALSE    0.00000   0      0       0    
-7 alcUse int.  alcUse average alter x alcUse loPass TRUE    FALSE FALSE    0.00000   0    420     381    </code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiICBuYW1lICAgZWZmZWN0TmFtZSAgICAgICAgICAgICAgICAgIGluY2x1ZGUgZml4ICAgdGVzdCAgaW5pdGlhbFZhbHVlIHBhcm1cbjEgbXluZXQxIGJhc2ljIHJhdGUgcGFyYW1ldGVyIG15bmV0MSBUUlVFICAgIEZBTFNFIEZBTFNFICAgIDQuNjk2MDQgICAwICAgXG4yIG15bmV0MSBvdXRkZWdyZWUgKGRlbnNpdHkpICAgICAgICAgVFJVRSAgICBGQUxTRSBGQUxTRSAgIC0xLjQ4ODUyICAgMCAgIFxuMyBteW5ldDEgcmVjaXByb2NpdHkgICAgICAgICAgICAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC4wMDAwMCAgIDAgICBcbjQgYWxjVXNlIHJhdGUgYWxjVXNlIHBlcmlvZCAxICAgICAgICBUUlVFICAgIEZBTFNFIEZBTFNFICAgIDAuNzA1NzEgICAwICAgXG41IGFsY1VzZSBhbGNVc2UgbGluZWFyIHNoYXBlICAgICAgICAgVFJVRSAgICBGQUxTRSBGQUxTRSAgICAwLjMyMjQ3ICAgMCAgIFxuNiBhbGNVc2UgYWxjVXNlIHF1YWRyYXRpYyBzaGFwZSAgICAgIFRSVUUgICAgRkFMU0UgRkFMU0UgICAgMC4wMDAwMCAgIDAgICBcbjcgYWxjVXNlIGFsY1VzZSBhdmUuIGFsdGVyIExvUGFzcyAgICBUUlVFICAgIEZBTFNFIEZBTFNFICAgIDAuMDAwMDAgICAzICAgXG4ifQ== -->
+<pre><code>  name   effectName                  include fix   test  initialValue parm
+1 mynet1 basic rate parameter mynet1 TRUE    FALSE FALSE    4.69604   0   
+2 mynet1 outdegree (density)         TRUE    FALSE FALSE   -1.48852   0   
+3 mynet1 reciprocity                 TRUE    FALSE FALSE    0.00000   0   
+4 alcUse rate alcUse period 1        TRUE    FALSE FALSE    0.70571   0   
+5 alcUse alcUse linear shape         TRUE    FALSE FALSE    0.32247   0   
+6 alcUse alcUse quadratic shape      TRUE    FALSE FALSE    0.00000   0   
+7 alcUse alcUse ave. alter LoPass    TRUE    FALSE FALSE    0.00000   3   </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1917,12 +1918,16 @@ algOb &lt;- sienaAlgorithmCreate(projname=&quot;s50Alc&quot;)</code></pre>
 <p>#Run model</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVzT2IgPC0gc2llbmEwNyhhbGdPYiwgZGF0YT1kYXRhT2IsIGVmZmVjdHM9ZWZmT2IsIGJhdGNoPVQpXG5gYGAifQ== -->
-<pre class="r"><code>resOb &lt;- siena07(algOb, data=dataOb, effects=effOb, batch=T)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVzT2IzIDwtIHNpZW5hMDcoYWxnT2IsIGRhdGE9ZGF0YU9iLCBlZmZlY3RzPWVmZk9iLCBiYXRjaD1GLCBwcmV2QW5zID0gcmVzT2IyLFxuICAgICAgICAgICAgICAgICAgdXNlQ2x1c3RlciA9IFQsIG5ick5vZGVzID0gNClcbmBgYCJ9 -->
+<pre class="r"><code>resOb3 &lt;- siena07(algOb, data=dataOb, effects=effOb, batch=F, prevAns = resOb2,
+                  useCluster = T, nbrNodes = 4)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>#Calculate stats manually</p>
+</div>
+<div id="section" class="section level1">
+<h1>===========================================================================================================</h1>
+<p>#Calculate stats manually NOTE: s50a has a mean of 2.99 and a range of 1-5</p>
 <p>###Center alcUse</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -1942,6 +1947,22 @@ avAlt.vec &lt;- s50a_c[,2] * gapply(s501, MARGIN=1, STATS=s50a_c[,2], FUN=mean, 
 avAlt.vec &lt;- ifelse(is.na(avAlt.vec), 0, avAlt.vec)
 #Calculate the total statisic. Should be 33.57
 avAlt.calc &lt;- sum(avAlt.vec)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>###avAlt statistic p=3, about the mean.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0NhbGMgYXYgYWx0IHBlciBpbmRpdmlkdWFsXG5zNTBhYy5wMyA8LSBzNTBhX2NcbnM1MGFjLnAzWywyXSA8LSBpZmVsc2UoczUwYWMucDNbLDJdID49IDAsIDAsIHM1MGFjLnAzWywyXSlcblxuYXZBbHRwMy52ZWMgPC0gczUwYWMucDNbLDJdICogZ2FwcGx5KHM1MDEsIE1BUkdJTj0xLCBTVEFUUz1zNTBhX2NbLDJdLCBGVU49bWVhbiwgbmEucm09VCkgXG4jUmVtb3ZlIE5hTnMgKHNvbWUgZWdvcyBjaG9zZSBubyBhbHRlcnMpXG5hdkFsdHAzLnZlYyA8LSBpZmVsc2UoaXMubmEoYXZBbHRwMy52ZWMpLCAwLCBhdkFsdHAzLnZlYylcbiNDYWxjdWxhdGUgdGhlIHRvdGFsIHN0YXRpc2ljLiBTaG91bGQgYmUgOC45MDk4XG5hdkFsdHAzLmNhbGMgPC0gc3VtKGF2QWx0cDMudmVjKVxuYGBgIn0= -->
+<pre class="r"><code>#Calc av alt per individual
+s50ac.p3 &lt;- s50a_c
+s50ac.p3[,2] &lt;- ifelse(s50ac.p3[,2] &gt;= 0, 0, s50ac.p3[,2])
+
+avAltp3.vec &lt;- s50ac.p3[,2] * gapply(s501, MARGIN=1, STATS=s50a_c[,2], FUN=mean, na.rm=T) 
+#Remove NaNs (some egos chose no alters)
+avAltp3.vec &lt;- ifelse(is.na(avAltp3.vec), 0, avAltp3.vec)
+#Calculate the total statisic. Should be 8.9098
+avAltp3.calc &lt;- sum(avAltp3.vec)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1987,18 +2008,10 @@ avAlt.calc &lt;- sum(avAlt.vec)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>An alternative</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9QYXNzLmNhbGMgKiBcbmBgYCJ9 -->
-<pre class="r"><code>loPass.calc * </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIk1vZGVsIHM1MDEgVGVzdCBEYXRhIg0KYXV0aG9yOiAiSk1MIg0KZGF0ZTogIlNlcHRlbWJlciAyNiwgMjAxOCAvIEphbnVhcnkgMjUsIDIwMjEiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojI0xvYWQgTGlicmFyaWVzIChmb3IgQVdTKQ0KYGBge3J9DQpwYWNrYWdlcyA8LSBjKCJoYXZlbiIsICJ0aWR5dmVyc2UiLA0KICAgICAgICAgICAgICAiTWF0cml4IiwgImRhdGEudGFibGUiLCAiZHRwbHlyIiwgIlJTaWVuYSIsICJybWFya2Rvd24iKQ0KaWYgKGxlbmd0aChzZXRkaWZmKHBhY2thZ2VzLCByb3duYW1lcyhpbnN0YWxsZWQucGFja2FnZXMoKSkpKSA+IDApIHsNCiAgaW5zdGFsbC5wYWNrYWdlcyhzZXRkaWYocGFja2FnZmVzLCByb3duYW1lcyhpbnN0YWxsZWQucGFja2FnZXMoKSkpKQ0KfQ0KbGFwcGx5KHBhY2thZ2VzLCBsaWJyYXJ5LCBjaGFyYWN0ZXIub25seSA9IFRSVUUpDQpgYGANCg0KIyNMb2FkIG9yIHNhdmUgd29ya3NwYWNlDQpgYGB7cn0NCmxvYWQoInM1MDEuUkRhdGEiKQ0KYGBgDQoNCmBgYHtyfQ0Kc2F2ZS5pbWFnZSgiczUwMS5SRGF0YSIpDQpgYGANCiMgTW9kZWwgc2V0dXANCg0KI0NyZWF0ZSAyLXdhdmUgczUwIG5ldHdvcmsgDQpEYXRhIGZyb20gU2NvdHRpc2ggc3R1ZHkgb2YgYWxjIGFuZCB0b2JhY2NvIHVzZSBpbiBhZG9sZXNjZW50cw0Kbj01MA0KYGBge3J9DQpteW5ldDEgPC0gc2llbmFEZXBlbmRlbnQoYXJyYXkoYyhzNTAxLCBzNTAyKSwgZGltPWMoNTAsIDUwLCAyKSkpDQpgYGANCg0KI0NyZWF0ZSBzNTAgQWxjIFVzZSB2YXJpYWJsZQ0KYGBge3J9DQpzNTBhIDwtIHM1MGFbLDE6Ml0NCmFsY1VzZSA8LSBzaWVuYURlcGVuZGVudChzNTBhLCB0eXBlPSJiZWhhdmlvciIpDQpgYGANCg0KI3M1MCBkYXRhT2JqLCBlZmZPYmosIGFsZ09iag0KYGBge3J9DQpkYXRhT2IgPC0gc2llbmFEYXRhQ3JlYXRlKG15bmV0MSwgYWxjVXNlKQ0KZWZmT2IgPC0gZ2V0RWZmZWN0cyhkYXRhT2IpDQphbGdPYiA8LSBzaWVuYUFsZ29yaXRobUNyZWF0ZShwcm9qbmFtZT0iczUwQWxjIikNCmBgYA0KI3M1MCBBZGQgRWZmZWN0cw0KYGBge3J9DQplZmZPYiA8LSBpbmNsdWRlRWZmZWN0cyhlZmZPYiwgYXZBbHQsIGludGVyYWN0aW9uMT0ibXluZXQxIiwgdHlwZT0iZXZhbCIsDQogICAgICAgICAgICAgICAgICAgICAgICBuYW1lPSJhbGNVc2UiLCBpbmNsdWRlPUYpDQplZmZPYiA8LSBpbmNsdWRlRWZmZWN0cyhlZmZPYiwgbG9QYXNzLCB0eXBlID0gImV2YWwiLA0KICAgICAgICAgICAgICAgICAgICAgICAgbmFtZSA9ICJhbGNVc2UiLCBpbmNsdWRlPUYpDQplZmZPYiA8LSBpbmNsdWRlSW50ZXJhY3Rpb24oZWZmT2IsIG5hbWUgPSAiYWxjVXNlIiwgdHlwZSA9ICJldmFsIiwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhdkFsdCwgbG9QYXNzLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGludGVyYWN0aW9uMSA9IGMoIm15bmV0MSIsICIiKSkNCmBgYA0KI0xvb2sgYXQgZWZmZWN0cyBvYmoNCmBgYHtyfQ0KcHJpbnQoZWZmT2IsIGV4cGFuZCA9IFRSVUUpIA0KYGBgDQoNCiMjI0NyZWF0ZSBIVE1MIGVmZmVjdHMgdGFibGUNCmBgYHtyfQ0KZWZmZWN0c0RvY3VtZW50YXRpb24oZWZmT2IsIGZpbGVuYW1lID0gInM1MGVmZngiKQ0KYGBgDQoNCiNSdW4gbW9kZWwNCmBgYHtyfQ0KcmVzT2IgPC0gc2llbmEwNyhhbGdPYiwgZGF0YT1kYXRhT2IsIGVmZmVjdHM9ZWZmT2IsIGJhdGNoPVQpDQpgYGANCg0KDQojQ2FsY3VsYXRlIHN0YXRzIG1hbnVhbGx5DQoNCiMjI0NlbnRlciBhbGNVc2UNCmBgYHtyfQ0KI0NlbnRlciB0aGUgYWxjIHZhcmlhYmxlDQpzNTBhX2MgPC0gczUwYSAtIG1lYW4oczUwYSkNCmBgYA0KDQojIyNhdkFsdCBzdGF0aXN0aWMgW3ZlcmZpZmllZCBPS10NCmBgYHtyfQ0KI0NhbGMgYXYgYWx0IHBlciBpbmRpdmlkdWFsDQphdkFsdC52ZWMgPC0gczUwYV9jWywyXSAqIGdhcHBseShzNTAxLCBNQVJHSU49MSwgU1RBVFM9czUwYV9jWywyXSwgRlVOPW1lYW4sIG5hLnJtPVQpIA0KI1JlbW92ZSBOYU5zIChzb21lIGVnb3MgY2hvc2Ugbm8gYWx0ZXJzKQ0KYXZBbHQudmVjIDwtIGlmZWxzZShpcy5uYShhdkFsdC52ZWMpLCAwLCBhdkFsdC52ZWMpDQojQ2FsY3VsYXRlIHRoZSB0b3RhbCBzdGF0aXNpYy4gU2hvdWxkIGJlIDMzLjU3DQphdkFsdC5jYWxjIDwtIHN1bShhdkFsdC52ZWMpDQpgYGANCg0KIyMjUXVhZCBlZmZlY3Qgc3RhdGlzdGljIFt2ZXJpZmllZCBPS10NCmBgYHtyfQ0KI1Nob3VsZCBiZSA3MS4xMDUNCnN1bShzNTBhX2NbLDJdKnM1MGFfY1ssMl0pDQpgYGANCg0KIyMjbG9QYXNzIGVmZmVjdCBzdGF0aXN0aWMgW3ZlcmlmaWVkIE9LXQ0KYGBge3J9DQojU2hvdWxkIGJlIDI0LjE1NjcNCmxvUGFzcy5jYWxjIDwtIHN1bSgxLyhleHAoczUwYV9jWywyXSkrMSkpDQpgYGANCg0KIyMjbG9QYXNzIHZhbHVlcyBmb3IgZWFjaCBpbmRpdmlkdWFsIA0KYGBge3J9DQpsb1Bhc3MudmVjIDwtIDEvKGV4cChzNTBhX2NbLDJdKSsxKQ0KYGBgDQoNCmBgYHtyfQ0KczUwYV9jWywyXQ0KYGBgDQoNCiMjIzRsb1Bhc3MgeCBhdkFsdCBzdGF0aXN0aWMNClRoaXMgb25lIGlzIE5PVCBjb3JyZWN0LiBSU2llbmEgY2FsY3VsYXRlcyB0aGlzIGludGVyYWN0aW9uIHRvIGhhdmUNCmEgc3RhdGlzdGljIG9mIC0xLjMzDQpgYGB7cn0NCmRpc2NBdkFsdCA8LSBzdW0oYXZBbHQudmVjICogbG9QYXNzLnZlYykNCmBgYA0KDQpBbiBhbHRlcm5hdGl2ZQ0KYGBge3J9DQpsb1Bhc3MuY2FsYyAqIA0KYGBgDQoNCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIk1vZGVsIHM1MDEgVGVzdCBEYXRhIg0KYXV0aG9yOiAiSk1MIg0KZGF0ZTogIlNlcHRlbWJlciAyNiwgMjAxOCAvIEphbnVhcnkgMjUsIDIwMjEiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojI0xvYWQgTGlicmFyaWVzIChmb3IgQVdTKQ0KYGBge3J9DQpwYWNrYWdlcyA8LSBjKCJoYXZlbiIsICJ0aWR5dmVyc2UiLCAic25hIiwNCiAgICAgICAgICAgICAgIk1hdHJpeCIsICJkdHBseXIiLCAiUlNpZW5hIiwgInJtYXJrZG93biIpDQppZiAobGVuZ3RoKHNldGRpZmYocGFja2FnZXMsIHJvd25hbWVzKGluc3RhbGxlZC5wYWNrYWdlcygpKSkpID4gMCkgew0KICBpbnN0YWxsLnBhY2thZ2VzKHNldGRpZihwYWNrYWdmZXMsIHJvd25hbWVzKGluc3RhbGxlZC5wYWNrYWdlcygpKSkpDQp9DQpsYXBwbHkocGFja2FnZXMsIGxpYnJhcnksIGNoYXJhY3Rlci5vbmx5ID0gVFJVRSkNCmBgYA0KDQojI0xvYWQgb3Igc2F2ZSB3b3Jrc3BhY2UNCmBgYHtyfQ0KbG9hZCgiczUwMS5SRGF0YSIpDQpgYGANCg0KYGBge3J9DQpzYXZlLmltYWdlKCJzNTAxLlJEYXRhIikNCmBgYA0KIyBNb2RlbCBzZXR1cA0KDQojQ3JlYXRlIDItd2F2ZSBzNTAgbmV0d29yayANCkRhdGEgZnJvbSBTY290dGlzaCBzdHVkeSBvZiBhbGMgYW5kIHRvYmFjY28gdXNlIGluIGFkb2xlc2NlbnRzDQpuPTUwDQpgYGB7cn0NCm15bmV0MSA8LSBzaWVuYURlcGVuZGVudChhcnJheShjKHM1MDEsIHM1MDIpLCBkaW09Yyg1MCwgNTAsIDIpKSkNCmBgYA0KDQojQ3JlYXRlIHM1MCBBbGMgVXNlIHZhcmlhYmxlDQpgYGB7cn0NCnM1MGEgPC0gczUwYVssMToyXQ0KYWxjVXNlIDwtIHNpZW5hRGVwZW5kZW50KHM1MGEsIHR5cGU9ImJlaGF2aW9yIikNCmBgYA0KDQojczUwIGRhdGFPYmosIGVmZk9iaiwgYWxnT2JqDQpgYGB7cn0NCmRhdGFPYiA8LSBzaWVuYURhdGFDcmVhdGUobXluZXQxLCBhbGNVc2UpDQplZmZPYiA8LSBnZXRFZmZlY3RzKGRhdGFPYikNCmFsZ09iIDwtIHNpZW5hQWxnb3JpdGhtQ3JlYXRlKHByb2puYW1lPSJzNTBBbGMiKQ0KYGBgDQojczUwIEFkZCBFZmZlY3RzDQpgYGB7cn0NCmVmZk9iIDwtIGluY2x1ZGVFZmZlY3RzKGVmZk9iLCBhdkFsdCwgDQogICAgICAgICAgICAgICAgICAgICAgICBpbnRlcmFjdGlvbjE9Im15bmV0MSIsIHR5cGU9ImV2YWwiLCBuYW1lPSJhbGNVc2UiLCANCiAgICAgICAgICAgICAgICAgICAgICAgIGluY2x1ZGU9RikNCmVmZk9iIDwtIGluY2x1ZGVFZmZlY3RzKGVmZk9iLCBhdkFsdExvUGFzcywgDQogICAgICAgICAgICAgICAgICAgICAgICBpbnRlcmFjdGlvbjE9Im15bmV0MSIsIHR5cGU9ImV2YWwiLCBuYW1lPSJhbGNVc2UiLCANCiAgICAgICAgICAgICAgICAgICAgICAgIGluY2x1ZGU9VCwNCiAgICAgICAgICAgICAgICAgICAgICAgIHBhcmFtZXRlciA9IDYpDQplZmZPYiA8LSBzZXRFZmZlY3QoZWZmT2IsIGF2QWx0TG9QYXNzLCANCiAgICAgICAgICAgICAgICAgICAgICAgIGludGVyYWN0aW9uMT0ibXluZXQxIiwgdHlwZT0iZXZhbCIsIG5hbWU9ImFsY1VzZSIsIA0KICAgICAgICAgICAgICAgICAgICAgICAgaW5jbHVkZT1ULA0KICAgICAgICAgICAgICAgICAgICAgICAgcGFyYW1ldGVyID0gMykNCg0KZWZmT2IgPC0gaW5jbHVkZUVmZmVjdHMoZWZmT2IsIGxvUGFzcywgdHlwZSA9ICJldmFsIiwNCiAgICAgICAgICAgICAgICAgICAgICAgIG5hbWUgPSAiYWxjVXNlIiwgaW5jbHVkZT1GKQ0KZWZmT2IgPC0gaW5jbHVkZUVmZmVjdHMoZWZmT2IsIGxvUGFzc1N0ZXAsIHR5cGUgPSAiZXZhbCIsDQogICAgICAgICAgICAgICAgICAgICAgICBuYW1lID0gImFsY1VzZSIsIGluY2x1ZGU9RikNCmVmZlBiIDwtIGluY2x1ZGVFZmZlY3RzKGVmZk9iLCBsaW5lYXIsIHR5cGUgPSAiZXZhbCIsDQogICAgICAgICAgICAgICAgICAgICAgICBuYW1lID0gImFsY1VzZSIsIGluY2x1ZGUgPSBGKQ0KDQplZmZPYiA8LSBpbmNsdWRlSW50ZXJhY3Rpb24oZWZmT2IsIG5hbWUgPSAiYWxjVXNlIiwgdHlwZSA9ICJldmFsIiwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBhdkFsdCwgbG9QYXNzLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGludGVyYWN0aW9uMSA9IGMoIm15bmV0MSIsICIiKSwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpbmNsdWRlID0gRikNCg0KZWZmT2IgPC0gaW5jbHVkZUludGVyYWN0aW9uKGVmZk9iLCBuYW1lID0gImFsY1VzZSIsIHR5cGUgPSAiZXZhbCIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgYXZBbHQsIGxvUGFzc1N0ZXAsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgcGFyYW1ldGVyID0gLTIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ZXJhY3Rpb24xID0gYygibXluZXQxIiwgIiIpLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluY2x1ZGUgPSBUKQ0KDQplZmZvYiA8LSBpbmNsdWRlRWZmZWN0cyhlZmZPYiwgYXZBbGspDQpgYGANCiNMb29rIGF0IGVmZmVjdHMgb2JqDQpgYGB7cn0NCnByaW50KGVmZk9iLCBleHBhbmQgPSBUUlVFKSANCmBgYA0KDQojIyNDcmVhdGUgSFRNTCBlZmZlY3RzIHRhYmxlDQpgYGB7cn0NCmVmZmVjdHNEb2N1bWVudGF0aW9uKGVmZk9iLCBmaWxlbmFtZSA9ICJzNTBlZmZ4IikNCmBgYA0KDQojUnVuIG1vZGVsDQpgYGB7cn0NCnJlc09iMyA8LSBzaWVuYTA3KGFsZ09iLCBkYXRhPWRhdGFPYiwgZWZmZWN0cz1lZmZPYiwgYmF0Y2g9RiwgcHJldkFucyA9IHJlc09iMiwNCiAgICAgICAgICAgICAgICAgIHVzZUNsdXN0ZXIgPSBULCBuYnJOb2RlcyA9IDQpDQpgYGANCg0KPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0NCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09DQoNCiNDYWxjdWxhdGUgc3RhdHMgbWFudWFsbHkNCk5PVEU6DQogIHM1MGEgaGFzIGEgbWVhbiBvZiAyLjk5IGFuZCBhIHJhbmdlIG9mIDEtNQ0KDQojIyNDZW50ZXIgYWxjVXNlDQpgYGB7cn0NCiNDZW50ZXIgdGhlIGFsYyB2YXJpYWJsZQ0KczUwYV9jIDwtIHM1MGEgLSBtZWFuKHM1MGEpDQpgYGANCg0KIyMjYXZBbHQgc3RhdGlzdGljIFt2ZXJmaWZpZWQgT0tdDQpgYGB7cn0NCiNDYWxjIGF2IGFsdCBwZXIgaW5kaXZpZHVhbA0KYXZBbHQudmVjIDwtIHM1MGFfY1ssMl0gKiBnYXBwbHkoczUwMSwgTUFSR0lOPTEsIFNUQVRTPXM1MGFfY1ssMl0sIEZVTj1tZWFuLCBuYS5ybT1UKSANCiNSZW1vdmUgTmFOcyAoc29tZSBlZ29zIGNob3NlIG5vIGFsdGVycykNCmF2QWx0LnZlYyA8LSBpZmVsc2UoaXMubmEoYXZBbHQudmVjKSwgMCwgYXZBbHQudmVjKQ0KI0NhbGN1bGF0ZSB0aGUgdG90YWwgc3RhdGlzaWMuIFNob3VsZCBiZSAzMy41Nw0KYXZBbHQuY2FsYyA8LSBzdW0oYXZBbHQudmVjKQ0KYGBgDQoNCiMjI2F2QWx0IHN0YXRpc3RpYyBwPTMsIGFib3V0IHRoZSBtZWFuLg0KYGBge3J9DQojQ2FsYyBhdiBhbHQgcGVyIGluZGl2aWR1YWwNCnM1MGFjLnAzIDwtIHM1MGFfYw0KczUwYWMucDNbLDJdIDwtIGlmZWxzZShzNTBhYy5wM1ssMl0gPj0gMiwgMCwgczUwYWMucDNbLDJdKQ0KDQphdkFsdHAzLnZlYyA8LSBzNTBhYy5wM1ssMl0gKiBnYXBwbHkoczUwMSwgTUFSR0lOPTEsIFNUQVRTPXM1MGFfY1ssMl0sIEZVTj1tZWFuLCBuYS5ybT1UKSANCiNSZW1vdmUgTmFOcyAoc29tZSBlZ29zIGNob3NlIG5vIGFsdGVycykNCmF2QWx0cDMudmVjIDwtIGlmZWxzZShpcy5uYShhdkFsdHAzLnZlYyksIDAsIGF2QWx0cDMudmVjKQ0KI0NhbGN1bGF0ZSB0aGUgdG90YWwgc3RhdGlzaWMuIFNob3VsZCBiZSA4LjkwOTgNCmF2QWx0cDMuY2FsYyA8LSBzdW0oYXZBbHRwMy52ZWMpDQpgYGANCg0KDQojIyNRdWFkIGVmZmVjdCBzdGF0aXN0aWMgW3ZlcmlmaWVkIE9LXQ0KYGBge3J9DQojU2hvdWxkIGJlIDcxLjEwNQ0Kc3VtKHM1MGFfY1ssMl0qczUwYV9jWywyXSkNCmBgYA0KDQojIyNsb1Bhc3MgZWZmZWN0IHN0YXRpc3RpYyBbdmVyaWZpZWQgT0tdDQpgYGB7cn0NCiNTaG91bGQgYmUgMjQuMTU2Nw0KbG9QYXNzLmNhbGMgPC0gc3VtKDEvKGV4cChzNTBhX2NbLDJdKSsxKSkNCmBgYA0KDQojIyNsb1Bhc3MgdmFsdWVzIGZvciBlYWNoIGluZGl2aWR1YWwgDQpgYGB7cn0NCmxvUGFzcy52ZWMgPC0gMS8oZXhwKHM1MGFfY1ssMl0pKzEpDQpgYGANCg0KYGBge3J9DQpzNTBhX2NbLDJdDQpgYGANCg0KIyMjNGxvUGFzcyB4IGF2QWx0IHN0YXRpc3RpYw0KVGhpcyBvbmUgaXMgTk9UIGNvcnJlY3QuIFJTaWVuYSBjYWxjdWxhdGVzIHRoaXMgaW50ZXJhY3Rpb24gdG8gaGF2ZQ0KYSBzdGF0aXN0aWMgb2YgLTEuMzMNCmBgYHtyfQ0KZGlzY0F2QWx0IDwtIHN1bShhdkFsdC52ZWMgKiBsb1Bhc3MudmVjKQ0KYGBgDQoNCg0KDQo=</div>
 
 
 
