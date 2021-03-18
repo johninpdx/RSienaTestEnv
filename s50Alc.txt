@@ -588,3 +588,1484 @@ covariance/correlation matrix of X can be found using
 summary(ans) within R, or by using the 'verbose' option in Siena07.
  
 Total computation time 27.04 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 19/02/2021 11:38:41
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1033 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 765345.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                            33.5746
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 2106 iterations.
+Parameter estimates based on 1106 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.   0.9330   9.4228   0.0990 
+  2.  -0.1710  10.4493  -0.0164 
+  3.  -0.2980   9.4087  -0.0317 
+  4.   0.0660   4.3009   0.0153 
+  5.   0.0160   5.9591   0.0027 
+  6.   0.3123  10.0250   0.0312 
+  7.   0.1247   8.9342   0.0140 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.1142 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 2106 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5591  (   0.7298)
+ 2. eval:  outdegree (density)                                    -2.2281  (   0.1275)
+ 3. eval:  reciprocity                                             2.4342  (   0.2528)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.1717  (   0.3513)
+ 5. eval:  alcUse linear shape                                     1.0197  (   1.2046)
+ 6. eval:  alcUse quadratic shape                                 -0.4625  (   0.6785)
+ 7. eval:  alcUse ave. alter LoPass                                3.3254  (   4.7443)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.533      0.009     -0.017     -0.026      0.030     -0.007      0.138
+     0.097      0.016     -0.024      0.000     -0.028      0.018     -0.109
+    -0.094     -0.729      0.064     -0.007      0.084     -0.050      0.317
+    -0.102     -0.007     -0.075      0.123     -0.110      0.036     -0.333
+     0.034     -0.183      0.274     -0.260      1.451     -0.786      5.411
+    -0.014      0.204     -0.291      0.153     -0.962      0.460     -3.050
+     0.040     -0.180      0.265     -0.200      0.947     -0.947     22.509
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 36.97 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 19/02/2021 12:05:08
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1034 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 325689.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                            33.5746
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 2004 iterations.
+Parameter estimates based on 1004 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.   0.0290   9.7899   0.0030 
+  2.  -0.0130  10.2746  -0.0013 
+  3.   0.1800   9.5960   0.0188 
+  4.   0.0580   4.3296   0.0134 
+  5.  -0.0540   5.8608  -0.0092 
+  6.  -0.4871  10.0393  -0.0485 
+  7.  -0.3143   8.9166  -0.0353 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.0706 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 2004 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5630  (   0.7842)
+ 2. eval:  outdegree (density)                                    -2.2297  (   0.1365)
+ 3. eval:  reciprocity                                             2.4404  (   0.2558)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.1747  (   0.3475)
+ 5. eval:  alcUse linear shape                                     1.0240  (   1.4352)
+ 6. eval:  alcUse quadratic shape                                 -0.4676  (   0.7736)
+ 7. eval:  alcUse ave. alter LoPass                                3.2412  (   5.2232)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.615     -0.009      0.023      0.057     -0.023     -0.003      0.004
+    -0.082      0.019     -0.026     -0.008      0.047     -0.024      0.155
+     0.116     -0.741      0.065      0.019     -0.126      0.065     -0.443
+     0.210     -0.161      0.215      0.121     -0.213      0.102     -0.681
+    -0.020      0.239     -0.344     -0.427      2.060     -1.085      7.220
+    -0.005     -0.223      0.328      0.381     -0.977      0.598     -3.913
+     0.001      0.218     -0.332     -0.375      0.963     -0.968     27.282
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 26.27 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 19/02/2021 14:40:36
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1035 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 479748.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                             8.9098
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 1906 iterations.
+Parameter estimates based on 906 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.  -0.3660   9.2258  -0.0397 
+  2.   0.3120  10.1490   0.0307 
+  3.  -0.5200   9.0609  -0.0574 
+  4.  -0.0720   4.4872  -0.0160 
+  5.   0.0020   5.5931   0.0004 
+  6.  -0.7300   9.6504  -0.0756 
+  7.  -0.2161   6.0791  -0.0355 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.1837 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 1906 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.4943  (   0.7481)
+ 2. eval:  outdegree (density)                                    -2.2153  (   0.1242)
+ 3. eval:  reciprocity                                             2.4121  (   0.2495)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.2329  (   0.3293)
+ 5. eval:  alcUse linear shape                                     0.4678  (   0.3419)
+ 6. eval:  alcUse quadratic shape                                 -0.1383  (   0.1846)
+ 7. eval:  alcUse ave. alter LoPass                                0.9138  (   1.0100)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.560     -0.002      0.011     -0.031      0.000      0.010      0.021
+    -0.022      0.015     -0.021     -0.001      0.003     -0.001      0.004
+     0.057     -0.692      0.062      0.003     -0.006      0.003     -0.012
+    -0.124     -0.030      0.032      0.108     -0.046      0.011     -0.075
+     0.001      0.067     -0.073     -0.411      0.117     -0.040      0.254
+     0.069     -0.049      0.070      0.186     -0.640      0.034     -0.139
+     0.028      0.030     -0.046     -0.225      0.736     -0.746      1.020
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 113.29 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 19/02/2021 14:59:10
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1036 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 689475.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                             8.9098
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 1870 iterations.
+Parameter estimates based on 870 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.  -0.0400   9.4296  -0.0042 
+  2.  -0.2180  10.4669  -0.0208 
+  3.  -0.2820  10.0619  -0.0280 
+  4.  -0.1140   4.5146  -0.0253 
+  5.   0.1080   5.6849   0.0190 
+  6.  -0.0678   9.8669  -0.0069 
+  7.   0.1643   6.0993   0.0269 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.0711 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 1870 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5368  (   0.8193)
+ 2. eval:  outdegree (density)                                    -2.2295  (   0.1286)
+ 3. eval:  reciprocity                                             2.4359  (   0.2291)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.2455  (   0.3060)
+ 5. eval:  alcUse linear shape                                     0.4703  (   0.3103)
+ 6. eval:  alcUse quadratic shape                                 -0.1399  (   0.1858)
+ 7. eval:  alcUse ave. alter LoPass                                0.9404  (   1.0491)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.671      0.015      0.006     -0.037      0.025     -0.013      0.205
+     0.142      0.017     -0.021      0.000      0.001     -0.002      0.007
+     0.032     -0.706      0.052      0.000      0.002      0.000      0.012
+    -0.148      0.000     -0.001      0.094     -0.018      0.003     -0.028
+     0.099      0.031      0.032     -0.184      0.096     -0.036      0.241
+    -0.087     -0.069     -0.004      0.057     -0.632      0.035     -0.144
+     0.238      0.054      0.049     -0.087      0.740     -0.740      1.101
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 38.55 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 20/02/2021 07:50:05
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1036 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 602820.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                             8.9098
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 1906 iterations.
+Parameter estimates based on 906 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.  -0.1860   9.3755  -0.0198 
+  2.  -0.3680  10.3612  -0.0355 
+  3.   0.0260   9.4142   0.0028 
+  4.  -0.0120   4.4811  -0.0027 
+  5.   0.4120   5.8303   0.0707 
+  6.  -0.2918   9.3092  -0.0313 
+  7.  -0.2989   6.1810  -0.0484 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.1082 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 1906 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5390  (   0.8779)
+ 2. eval:  outdegree (density)                                    -2.2338  (   0.1197)
+ 3. eval:  reciprocity                                             2.4432  (   0.2370)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.2326  (   0.3228)
+ 5. eval:  alcUse linear shape                                     0.4758  (   0.3105)
+ 6. eval:  alcUse quadratic shape                                 -0.1407  (   0.2003)
+ 7. eval:  alcUse ave. alter LoPass                                0.9380  (   1.0315)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.771      0.008      0.006     -0.047      0.006     -0.003      0.051
+     0.076      0.014     -0.020     -0.002      0.000     -0.001      0.011
+     0.028     -0.707      0.056      0.004     -0.003      0.005     -0.028
+    -0.167     -0.056      0.055      0.104     -0.019     -0.001     -0.025
+     0.022      0.008     -0.041     -0.194      0.096     -0.039      0.235
+    -0.014     -0.043      0.101     -0.009     -0.627      0.040     -0.155
+     0.056      0.090     -0.113     -0.076      0.734     -0.750      1.064
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 49.17 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 20/02/2021 08:23:45
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1038 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 861275.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                             8.9098
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 2026 iterations.
+Parameter estimates based on 1026 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.  -0.0130   9.4456  -0.0014 
+  2.   0.1170  10.1946   0.0115 
+  3.  -0.0220   9.1935  -0.0024 
+  4.  -0.0390   4.3709  -0.0089 
+  5.   0.0130   5.7089   0.0023 
+  6.  -0.2847   9.7491  -0.0292 
+  7.  -0.0234   6.1841  -0.0038 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.0394 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 2026 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5324  (   0.8985)
+ 2. eval:  outdegree (density)                                    -2.2223  (   0.1390)
+ 3. eval:  reciprocity                                             2.4248  (   0.2624)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.2402  (   0.3439)
+ 5. eval:  alcUse linear shape                                     0.4614  (   0.3285)
+ 6. eval:  alcUse quadratic shape                                 -0.1380  (   0.1865)
+ 7. eval:  alcUse ave. alter LoPass                                0.9068  (   1.0400)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.807     -0.006      0.033     -0.001      0.050     -0.034      0.259
+    -0.051      0.019     -0.027     -0.003     -0.005      0.004     -0.019
+     0.142     -0.730      0.069      0.004      0.003     -0.004      0.016
+    -0.005     -0.053      0.045      0.118     -0.024      0.001     -0.033
+     0.168     -0.112      0.039     -0.209      0.108     -0.041      0.259
+    -0.202      0.161     -0.087      0.019     -0.668      0.035     -0.144
+     0.277     -0.132      0.059     -0.091      0.757     -0.744      1.082
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 43.95 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 20/02/2021 11:51:00
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1039 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 918176.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                             8.9098
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 1704 iterations.
+Parameter estimates based on 704 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.  -0.3530   9.3458  -0.0378 
+  2.  -0.4530  10.2364  -0.0443 
+  3.  -0.2240   9.3281  -0.0240 
+  4.  -0.0730   4.6105  -0.0158 
+  5.  -0.1110   5.8623  -0.0189 
+  6.   0.4428   9.7373   0.0455 
+  7.   0.3412   6.2226   0.0548 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.086 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 1704 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5508  (   0.8097)
+ 2. eval:  outdegree (density)                                    -2.2333  (   0.1349)
+ 3. eval:  reciprocity                                             2.4428  (   0.2532)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.2323  (   0.3343)
+ 5. eval:  alcUse linear shape                                     0.4684  (   0.3146)
+ 6. eval:  alcUse quadratic shape                                 -0.1416  (   0.1869)
+ 7. eval:  alcUse ave. alter LoPass                                0.9305  (   1.0829)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.656      0.022     -0.027      0.012     -0.038      0.011     -0.054
+     0.201      0.018     -0.025      0.003      0.000     -0.001      0.006
+    -0.131     -0.726      0.064     -0.007      0.001      0.001      0.008
+     0.045      0.066     -0.077      0.112     -0.037      0.011     -0.113
+    -0.149      0.009      0.014     -0.356      0.099     -0.038      0.253
+     0.074     -0.058      0.025      0.170     -0.644      0.035     -0.148
+    -0.061      0.040      0.028     -0.313      0.743     -0.733      1.173
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 32.93 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 25/02/2021 10:45:24
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1040 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 325896.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                             8.9098
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 1919 iterations.
+Parameter estimates based on 919 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.   0.0530   9.5810   0.0055 
+  2.   0.4050  10.0732   0.0402 
+  3.   0.2820   9.2957   0.0303 
+  4.   0.0610   4.2258   0.0144 
+  5.   0.1230   5.7634   0.0213 
+  6.   0.1475   9.4409   0.0156 
+  7.   0.2068   6.4752   0.0319 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.0696 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 1919 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5376  (   0.7731)
+ 2. eval:  outdegree (density)                                    -2.2277  (   0.1229)
+ 3. eval:  reciprocity                                             2.4380  (   0.2463)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.2353  (   0.3653)
+ 5. eval:  alcUse linear shape                                     0.4755  (   0.3402)
+ 6. eval:  alcUse quadratic shape                                 -0.1407  (   0.1985)
+ 7. eval:  alcUse ave. alter LoPass                                0.9378  (   1.0683)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.598      0.004      0.007      0.000     -0.014      0.019     -0.071
+     0.044      0.015     -0.021      0.003     -0.002      0.003     -0.010
+     0.035     -0.698      0.061     -0.010      0.005     -0.003      0.020
+     0.002      0.058     -0.113      0.133     -0.056      0.019     -0.134
+    -0.052     -0.059      0.060     -0.452      0.116     -0.044      0.276
+     0.122      0.106     -0.052      0.259     -0.649      0.039     -0.165
+    -0.086     -0.078      0.076     -0.344      0.760     -0.779      1.141
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 45.36 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 25/02/2021 12:13:43
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1041 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 372792.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                             8.9098
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 1850 iterations.
+Parameter estimates based on 850 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.  -0.1940   9.8990  -0.0196 
+  2.  -0.5680  10.2961  -0.0552 
+  3.  -0.4560   9.2761  -0.0492 
+  4.  -0.1360   4.5636  -0.0298 
+  5.   0.2060   5.7252   0.0360 
+  6.   0.3021   9.4497   0.0320 
+  7.  -0.0002   6.3246   0.0000 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.0927 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 1850 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5513  (   0.6985)
+ 2. eval:  outdegree (density)                                    -2.2336  (   0.1254)
+ 3. eval:  reciprocity                                             2.4421  (   0.2456)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.2185  (   0.2832)
+ 5. eval:  alcUse linear shape                                     0.4740  (   0.3054)
+ 6. eval:  alcUse quadratic shape                                 -0.1357  (   0.1909)
+ 7. eval:  alcUse ave. alter LoPass                                0.9234  (   0.9703)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.488     -0.002      0.008      0.008     -0.001     -0.004     -0.012
+    -0.027      0.016     -0.021      0.004     -0.001      0.001     -0.001
+     0.049     -0.694      0.060     -0.008     -0.002      0.000     -0.004
+     0.041      0.113     -0.116      0.080     -0.012      0.003      0.000
+    -0.003     -0.018     -0.031     -0.142      0.093     -0.035      0.210
+    -0.032      0.056     -0.010      0.064     -0.604      0.036     -0.136
+    -0.018     -0.006     -0.019     -0.001      0.709     -0.737      0.942
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 44.91 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 26/02/2021 16:24:11
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1041 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 214891.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                            17.8196
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 1903 iterations.
+Parameter estimates based on 903 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.  -0.0560   9.3056  -0.0060 
+  2.  -0.5540  10.2002  -0.0543 
+  3.  -0.2620   9.3380  -0.0281 
+  4.   0.1210   4.5498   0.0266 
+  5.   0.1830   5.5027   0.0333 
+  6.  -0.3353   9.7782  -0.0343 
+  7.  -1.1303  11.9373  -0.0947 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.1169 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 1903 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5191  (   0.8823)
+ 2. eval:  outdegree (density)                                    -2.2267  (   0.1317)
+ 3. eval:  reciprocity                                             2.4312  (   0.2626)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.2418  (   0.3355)
+ 5. eval:  alcUse linear shape                                     0.4501  (   0.3192)
+ 6. eval:  alcUse quadratic shape                                 -0.1311  (   0.1809)
+ 7. eval:  alcUse ave. alter LoPass                                0.8742  (   1.1441)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.778      0.002      0.036      0.006      0.026     -0.013      0.131
+     0.017      0.017     -0.025     -0.003     -0.001      0.002     -0.013
+     0.155     -0.713      0.069      0.001      0.014     -0.011      0.067
+     0.019     -0.070      0.014      0.113     -0.036      0.003     -0.033
+     0.093     -0.026      0.161     -0.336      0.102     -0.035      0.238
+    -0.081      0.100     -0.222      0.051     -0.601      0.033     -0.151
+     0.130     -0.089      0.224     -0.086      0.652     -0.729      1.309
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 161.36 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 26/02/2021 16:31:24
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1042 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 671951.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4000000.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse ave. alter LoPass                        0.9493
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse ave. alter LoPass                                             8.9098
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 1799 iterations.
+Parameter estimates based on 799 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.   0.2550   9.4278   0.0270 
+  2.   0.0650   9.8683   0.0066 
+  3.   0.0460   9.1129   0.0050 
+  4.   0.1880   4.5415   0.0414 
+  5.   0.5660   5.8571   0.0966 
+  6.  -0.2067   9.2364  -0.0224 
+  7.  -0.3729   6.1964  -0.0602 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.1021 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 1799 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5364  (   0.8809)
+ 2. eval:  outdegree (density)                                    -2.2242  (   0.1231)
+ 3. eval:  reciprocity                                             2.4284  (   0.2319)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.2266  (   0.3361)
+ 5. eval:  alcUse linear shape                                     0.4801  (   0.3217)
+ 6. eval:  alcUse quadratic shape                                 -0.1464  (   0.1974)
+ 7. eval:  alcUse ave. alter LoPass                                0.9590  (   1.0582)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.776      0.004      0.005      0.001      0.000      0.009      0.032
+     0.036      0.015     -0.018      0.000     -0.002      0.001     -0.009
+     0.026     -0.647      0.054      0.004      0.004     -0.004      0.026
+     0.002      0.010      0.056      0.113     -0.046      0.010     -0.040
+     0.002     -0.055      0.056     -0.425      0.103     -0.039      0.230
+     0.051      0.056     -0.098      0.151     -0.615      0.039     -0.157
+     0.034     -0.067      0.104     -0.113      0.677     -0.749      1.120
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 42.58 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 01/03/2021 09:41:27
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1043 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 510679.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4472136.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse average alter                            0.0000
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse average alters                                               33.5746
+
+ 7 parameters, 7 statistics
+
+Total computation time 90.05 seconds.
+
+
+-----------------------------------
+New Analysis started.
+Date and time: 01/03/2021 09:43:12
+New results follow.
+-----------------------------------
+
+RSiena version 1.2.1043 (10 Dec 20)
+
+
+@1
+Estimation by stochastic approximation algorithm.
+=================================================
+
+Random initialization of random number stream.
+Current random number seed is 335828.
+Effects object used: effOb 
+Model Type:
+ Standard actor-oriented model
+Behavioral Model Type:
+ Standard behavior actor-oriented model ('restrict')
+Estimation method: unconditional moment estimation.
+
+Time duration for simulations is 1.0.
+Standard errors are estimated with the likelihood ratio method.
+Dolby method (regression on scores) is used.
+Initial value of gain parameter is  0.4472136.
+Reduction factor for gain parameter is  0.5000000.
+Number of subphases in Phase 2 is 4.
+
+Initial parameter values are 
+  1. rate:  basic rate parameter mynet1                     5.4906
+  2. eval:  outdegree (density)                            -2.2262
+  3. eval:  reciprocity                                     2.4323
+  4. rate:  rate alcUse period 1                            1.2504
+  5. eval:  alcUse linear shape                             0.3177
+  6. eval:  alcUse quadratic shape                         -0.2655
+  7. eval:  alcUse average alter                            0.0000
+
+
+Observed values of target statistics are
+  1. Amount of network change                                           115.0000
+  2. Number of ties                                                     116.0000
+  3. Number of reciprocated ties                                         70.0000
+  4. Amount of behavioral change                                         27.0000
+  5. alcUse centered sum                                                  5.5000
+  6. alcUse sum of cent. squares                                         71.1050
+  7. alcUse average alters                                               33.5746
+
+ 7 parameters, 7 statistics
+
+Estimation of derivatives by the LR method (type 1).
+
+
+@2
+End of stochastic approximation algorithm, phase 3.
+---------------------------------------------------
+
+Total of 2004 iterations.
+Parameter estimates based on 1004 iterations,
+convergence diagnostics, covariance and derivative matrices based on 1000 iterations.
+
+Information for convergence diagnosis.
+Averages, standard deviations, and t-ratios for deviations from targets:
+  1.   0.3570   9.4656   0.0377 
+  2.  -0.5430  10.5373  -0.0515 
+  3.  -0.0380   9.6743  -0.0039 
+  4.   0.0870   4.4065   0.0197 
+  5.   0.1150   6.4645   0.0178 
+  6.  -0.6687  10.0487  -0.0665 
+  7.  -0.3285   9.3399  -0.0352 
+
+Good convergence is indicated by the t-ratios being close to zero.
+
+Overall maximum convergence ratio =  0.1346 .
+
+
+
+@2
+Estimation Results.
+-------------------
+
+Regular end of estimation algorithm.
+Total of 2004 iteration steps.
+
+
+@3
+Estimates and standard errors
+                             
+Network Dynamics
+ 1. rate:  basic rate parameter mynet1                             5.5562  (   0.7828)
+ 2. eval:  outdegree (density)                                    -2.2330  (   0.1309)
+ 3. eval:  reciprocity                                             2.4438  (   0.2517)
+
+Behavior Dynamics
+ 4. rate:  rate alcUse period 1                                    1.2548  (   0.3960)
+ 5. eval:  alcUse linear shape                                     0.3240  (   0.2830)
+ 6. eval:  alcUse quadratic shape                                 -0.2758  (   0.3034)
+ 7. eval:  alcUse average alter                                    0.9801  (   0.9229)
+
+
+@3
+Covariance matrices
+                   
+Covariance matrix of estimates (correlations below diagonal):
+     0.613      0.011      0.003     -0.054      0.018     -0.012      0.053
+     0.109      0.017     -0.024      0.001     -0.001      0.002     -0.007
+     0.013     -0.729      0.063      0.002      0.002     -0.005      0.024
+    -0.174      0.010      0.017      0.157     -0.051      0.032     -0.115
+     0.082     -0.028      0.031     -0.453      0.080     -0.034      0.106
+    -0.052      0.043     -0.070      0.269     -0.392      0.092     -0.245
+     0.074     -0.058      0.101     -0.314      0.405     -0.875      0.852
+
+Derivative matrix of expected statistics X by parameters and
+covariance/correlation matrix of X can be found using
+summary(ans) within R, or by using the 'verbose' option in Siena07.
+ 
+Total computation time 37.92 seconds.

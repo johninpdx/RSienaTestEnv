@@ -44,15 +44,18 @@ dataOb <- sienaDataCreate(mynet1, alcUse)
 effOb <- getEffects(dataOb)
 algOb <- sienaAlgorithmCreate(projname="s50Alc")
 ```
+Print the report
+```{r}
+print01Report(dataOb, modelname = "alcModel.Rpt")
+```
+
+
 #s50 Add Effects
 ```{r}
 effOb <- includeEffects(effOb, avAlt, 
                         interaction1="mynet1", type="eval", name="alcUse", 
                         include=F)
-effOb <- includeEffects(effOb, avAltLoPass, 
-                        interaction1="mynet1", type="eval", name="alcUse", 
-                        include=T,
-                        parameter = 6)
+
 effOb <- setEffect(effOb, avAltLoPass, 
                         interaction1="mynet1", type="eval", name="alcUse", 
                         include=T,
@@ -90,8 +93,8 @@ effectsDocumentation(effOb, filename = "s50effx")
 
 #Run model
 ```{r}
-resOb3 <- siena07(algOb, data=dataOb, effects=effOb, batch=F, prevAns = resOb2,
-                  useCluster = T, nbrNodes = 4)
+resOb4 <- siena07(algOb, data=dataOb, effects=effOb, batch=F, prevAns = resOb2,
+                  useCluster = T, nbrNodes = 5)
 ```
 
 ===========================================================================================================
@@ -113,7 +116,7 @@ s50a_c <- s50a - mean(s50a)
 avAlt.vec <- s50a_c[,2] * gapply(s501, MARGIN=1, STATS=s50a_c[,2], FUN=mean, na.rm=T) 
 #Remove NaNs (some egos chose no alters)
 avAlt.vec <- ifelse(is.na(avAlt.vec), 0, avAlt.vec)
-#Calculate the total statisic. Should be 33.57
+#Calculate the total statisic. Should be 33.57..which it is!
 avAlt.calc <- sum(avAlt.vec)
 ```
 
@@ -121,7 +124,7 @@ avAlt.calc <- sum(avAlt.vec)
 ```{r}
 #Calc av alt per individual
 s50ac.p3 <- s50a_c
-s50ac.p3[,2] <- ifelse(s50ac.p3[,2] >= 2, 0, s50ac.p3[,2])
+s50ac.p3[,2] <- ifelse(s50ac.p3[,2] >= 0, 0, s50ac.p3[,2])
 
 avAltp3.vec <- s50ac.p3[,2] * gapply(s501, MARGIN=1, STATS=s50a_c[,2], FUN=mean, na.rm=T) 
 #Remove NaNs (some egos chose no alters)
@@ -129,6 +132,19 @@ avAltp3.vec <- ifelse(is.na(avAltp3.vec), 0, avAltp3.vec)
 #Calculate the total statisic. Should be 8.9098
 avAltp3.calc <- sum(avAltp3.vec)
 ```
+
+```{r}
+#Calc av alt per individual
+s50ac.p3.1 <- s50a_c
+s50ac.p3.1[,1] <- ifelse(s50ac.p3[,1] >= 0, 0, s50ac.p3[,1])
+
+avAltp3.1.vec <- s50ac.p3[,2] * gapply(s501, MARGIN=1, STATS=s50a_c[,1], FUN=mean, na.rm=T) 
+#Remove NaNs (some egos chose no alters)
+avAltp3.1.vec <- ifelse(is.na(avAltp3.1.vec), 0, avAltp3.1.vec)
+#Calculate the total statisic. Should be 8.9098
+avAltp3.1.calc <- sum(avAltp3.1.vec)
+```
+
 
 
 ###Quad effect statistic [verified OK]
